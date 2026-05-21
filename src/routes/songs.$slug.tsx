@@ -48,7 +48,9 @@ export const Route = createFileRoute("/songs/$slug")({
 
 function SongPage() {
   const { song } = Route.useLoaderData();
-  const related = song.relatedSlugs.map((s) => SONGS.find((x) => x.slug === s)).filter(Boolean) as typeof SONGS;
+  const related = song.relatedSlugs
+    .map((s: string) => SONGS.find((x) => x.slug === s))
+    .filter(Boolean) as typeof SONGS;
   const facts = song.factIds.map(factById).filter(Boolean) as NonNullable<ReturnType<typeof factById>>[];
   const resources = song.resourceIds.map(resourceById).filter(Boolean) as NonNullable<ReturnType<typeof resourceById>>[];
 
