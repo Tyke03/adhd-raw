@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { EmailSignup } from "@/components/EmailSignup";
 
 function NotFoundComponent() {
   return (
@@ -75,8 +76,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Unmanageable — Severe Adult ADHD" },
-      { name: "description", content: "Songs, research, and resources about severe adult ADHD — the kind that makes a life unmanageable without help. By Clearly Confused." },
-      { name: "author", content: "Clearly Confused" },
+      { name: "description", content: "Songs, research, and resources about severe adult ADHD — the kind that makes a life unmanageable without help. By Brent K. Hubert (Clearly Confused)." },
+      { name: "author", content: "Brent K. Hubert" },
       { property: "og:title", content: "Unmanageable — Severe Adult ADHD" },
       { property: "og:description", content: "An album, the research behind it, and resources for people whose ADHD is debilitating — not a superpower." },
       { property: "og:type", content: "website" },
@@ -120,6 +121,9 @@ function RootComponent() {
       <main id="content">
         <Outlet />
       </main>
+      <section className="shell pb-20">
+        <EmailSignup />
+      </section>
       <SiteFooter />
     </QueryClientProvider>
   );
