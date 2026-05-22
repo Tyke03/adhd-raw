@@ -64,17 +64,39 @@ export function ReactionChips({ targetKey }: { targetKey: string }) {
         return (
           <button
             key={r.id}
+            type="button"
             onClick={() => toggle(r.id)}
-            className="inline-flex items-center gap-2 rounded-full px-4 min-h-10 text-sm transition-colors"
+            className="inline-flex items-center gap-2 rounded-full px-4 min-h-11 text-sm transition-colors cursor-pointer hover:-translate-y-0.5"
             style={{
               background: isPicked
                 ? "var(--color-primary-highlight)"
                 : "var(--color-surface)",
-              border: `1px solid color-mix(in oklab, var(--color-foreground) ${isPicked ? 20 : 12}%, transparent)`,
+              border: `1px solid color-mix(in oklab, var(--color-primary) ${isPicked ? 55 : 22}%, transparent)`,
               color: "var(--color-foreground)",
+              boxShadow: isPicked
+                ? "0 0 0 2px color-mix(in oklab, var(--color-primary) 35%, transparent)"
+                : "none",
+              transition: "transform 120ms ease, background 120ms ease, box-shadow 120ms ease",
             }}
             aria-pressed={isPicked}
           >
+            <span
+              aria-hidden="true"
+              style={{
+                display: "inline-grid",
+                placeItems: "center",
+                width: "1.1rem",
+                height: "1.1rem",
+                borderRadius: "999px",
+                background: isPicked ? "var(--color-primary)" : "transparent",
+                border: `1px solid color-mix(in oklab, var(--color-primary) ${isPicked ? 80 : 45}%, transparent)`,
+                color: "var(--color-primary-foreground)",
+                fontSize: "0.7rem",
+                lineHeight: 1,
+              }}
+            >
+              {isPicked ? "✓" : ""}
+            </span>
             <span>{r.label}</span>
             <span style={{ color: "var(--color-text-muted)", fontVariantNumeric: "tabular-nums" }}>
               {counts[r.id] ?? 0}
