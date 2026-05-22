@@ -11,6 +11,8 @@ export type Song = {
   factIds: string[];
   relatedSlugs: string[];
   resourceIds: string[];
+  style: "rap" | "sing" | "hybrid";
+  mood: "soft" | "raw" | "head-bob-sob";
 };
 
 export const SONGS: Song[] = [
@@ -18,7 +20,8 @@ export const SONGS: Song[] = [
     slug: "both-things-can-be-true",
     title: "Both Things Can Be True",
     number: 1,
-    available: false,
+    available: true,
+    audio: "/audio/both-things-can-be-true.mp3",
     theme: "the contradiction",
     tagline: "Holding two opposite truths in the same hand without dropping either.",
     description:
@@ -27,12 +30,15 @@ export const SONGS: Song[] = [
     factIds: ["combinations", "rsd"],
     relatedSlugs: ["brain-on-shuffle", "i-break-me", "shame-keeps-blooming"],
     resourceIds: ["chadd", "additude"],
+    style: "hybrid",
+    mood: "head-bob-sob",
   },
   {
     slug: "brain-on-shuffle",
     title: "Brain On Shuffle",
     number: 2,
-    available: false,
+    available: true,
+    audio: "/audio/brain-on-shuffle.mp3",
     theme: "no internal order",
     tagline: "Twelve open tabs, none of them yours.",
     description:
@@ -41,12 +47,15 @@ export const SONGS: Song[] = [
     factIds: ["executive", "combinations"],
     relatedSlugs: ["looping-mind", "daydream-terrors", "glitch-cycle"],
     resourceIds: ["how-to-adhd", "barkley"],
+    style: "rap",
+    mood: "head-bob-sob",
   },
   {
     slug: "daydream-terrors",
     title: "Daydream Terrors",
     number: 3,
-    available: false,
+    available: true,
+    audio: "/audio/daydream-terrors.mp3",
     theme: "the inner cinema that won't stop",
     tagline: "Maladaptive daydreaming as a full-time second life.",
     description:
@@ -55,6 +64,8 @@ export const SONGS: Song[] = [
     factIds: ["executive", "combinations"],
     relatedSlugs: ["looping-mind", "brain-on-shuffle", "loud-brain-tired-bones"],
     resourceIds: ["additude"],
+    style: "sing",
+    mood: "soft",
   },
   {
     slug: "fast-life-part-1",
@@ -65,11 +76,13 @@ export const SONGS: Song[] = [
     theme: "the speed before the crash",
     tagline: "The novelty-chasing, risk-taking high before the bill comes due.",
     description:
-      "ADHD's dopamine economy doesn't reward maintenance — it rewards intensity. Speed, risk, new everything. This is the half of the story where it still feels like winning. Pair with Slow Death (Part 2) for the rest.",
+      "ADHD's dopamine economy doesn't reward maintenance — it rewards intensity. Speed, risk, new everything. This is the half of the story where it still feels like winning. It rolls directly into Slow Death (Part 2), which closes the album.",
     pull: "I'd rather burn the engine than learn the route.",
     factIds: ["crashes", "sud", "lifespan"],
     relatedSlugs: ["slow-death-part-2", "i-break-me", "glitch-cycle"],
     resourceIds: ["chadd", "samhsa"],
+    style: "rap",
+    mood: "head-bob-sob",
   },
   {
     slug: "glitch-cycle",
@@ -85,6 +98,8 @@ export const SONGS: Song[] = [
     factIds: ["outcomes", "untreated", "executive"],
     relatedSlugs: ["looping-mind", "i-break-me", "shame-keeps-blooming"],
     resourceIds: ["barkley", "how-to-adhd"],
+    style: "hybrid",
+    mood: "head-bob-sob",
   },
   {
     slug: "i-break-me",
@@ -100,12 +115,15 @@ export const SONGS: Song[] = [
     factIds: ["suicide", "rsd", "sud"],
     relatedSlugs: ["shame-keeps-blooming", "the-same-damn-knife", "slow-death-part-2"],
     resourceIds: ["988", "samhsa"],
+    style: "sing",
+    mood: "raw",
   },
   {
     slug: "looping-mind",
     title: "Looping Mind",
     number: 7,
-    available: false,
+    available: true,
+    audio: "/audio/looping-mind.mp3",
     theme: "the song that won't end",
     tagline: "Rumination on infinite repeat with no exit ramp.",
     description:
@@ -114,12 +132,15 @@ export const SONGS: Song[] = [
     factIds: ["executive", "rsd"],
     relatedSlugs: ["glitch-cycle", "daydream-terrors", "shame-keeps-blooming"],
     resourceIds: ["additude", "how-to-adhd"],
+    style: "hybrid",
+    mood: "soft",
   },
   {
     slug: "loud-brain-tired-bones",
     title: "Loud Brain, Tired Bones",
     number: 8,
-    available: false,
+    available: true,
+    audio: "/audio/loud-brain-tired-bones.mp3",
     theme: "wired and exhausted at once",
     tagline: "The body collapsed an hour ago. The brain didn't get the memo.",
     description:
@@ -128,6 +149,8 @@ export const SONGS: Song[] = [
     factIds: ["executive", "lifespan"],
     relatedSlugs: ["daydream-terrors", "looping-mind", "slow-death-part-2"],
     resourceIds: ["additude"],
+    style: "sing",
+    mood: "soft",
   },
   {
     slug: "shame-keeps-blooming",
@@ -143,6 +166,8 @@ export const SONGS: Song[] = [
     factIds: ["rsd", "suicide", "untreated"],
     relatedSlugs: ["i-break-me", "the-same-damn-knife", "you-know"],
     resourceIds: ["988", "chadd"],
+    style: "sing",
+    mood: "raw",
   },
   {
     slug: "slow-death-part-2",
@@ -150,20 +175,23 @@ export const SONGS: Song[] = [
     number: 10,
     available: true,
     audio: "/audio/slow-death-part-2.mp3",
-    theme: "the bill for Fast Life",
-    tagline: "The same engine that thrilled you wears the rest of you down.",
+    theme: "the closer · the bill for Fast Life",
+    tagline: "The album's closing track. The same engine that thrilled you wears the rest of you down.",
     description:
-      "If Fast Life is the rush, this is the receipt. Untreated ADHD is associated with a measurably shorter lifespan — accidents, addiction, suicide, neglect of medical care. This song doesn't dramatize it. It just names it.",
+      "The closer. If Fast Life is the rush, this is the receipt. A raw, end-of-the-rope walk where, as the song puts it, any remaining hope gets eaten by the shame. Untreated ADHD is associated with a measurably shorter lifespan — accidents, addiction, suicide, neglect of medical care. This song doesn't dramatize it. It just names it and sits there.",
     pull: "Nothing dramatic. Just a hundred small things I never finished.",
     factIds: ["lifespan", "sud", "outcomes"],
     relatedSlugs: ["fast-life-part-1", "i-break-me", "shame-keeps-blooming"],
     resourceIds: ["988", "samhsa", "chadd"],
+    style: "sing",
+    mood: "raw",
   },
   {
     slug: "the-same-damn-knife",
     title: "The Same Damn Knife",
     number: 11,
-    available: false,
+    available: true,
+    audio: "/audio/the-same-damn-knife.mp3",
     theme: "the tool that cuts both ways",
     tagline: "The trait that saves you on Tuesday wrecks you by Friday.",
     description:
@@ -172,6 +200,8 @@ export const SONGS: Song[] = [
     factIds: ["combinations", "outcomes"],
     relatedSlugs: ["both-things-can-be-true", "i-break-me", "fast-life-part-1"],
     resourceIds: ["chadd", "additude"],
+    style: "hybrid",
+    mood: "head-bob-sob",
   },
   {
     slug: "you-know",
@@ -180,14 +210,57 @@ export const SONGS: Song[] = [
     available: true,
     audio: "/audio/you-know.mp3",
     theme: "the recognition",
-    tagline: "The closing track. You don't need this song explained to you.",
+    tagline: "The track for the people who already know. No paragraph required.",
     description:
-      "If you've made it through the album, this one doesn't need a paragraph. It's the moment someone with severe ADHD finally hears a song and realizes it was written from inside the same room they've been locked in.",
+      "Not the closer — that's Slow Death (Part 2). This one is the recognition moment: when someone with severe ADHD finally hears a song and realizes it was written from inside the same room they've been locked in.",
     pull: "You know. That's why you stayed for the whole record.",
     factIds: ["late-dx", "combinations"],
     relatedSlugs: ["both-things-can-be-true", "shame-keeps-blooming", "slow-death-part-2"],
     resourceIds: ["chadd", "additude", "how-to-adhd"],
+    style: "rap",
+    mood: "head-bob-sob",
   },
 ];
 
 export const songBySlug = (slug: string) => SONGS.find((s) => s.slug === slug);
+
+// Recommended listening order — different from the track numbering.
+// Builds from thesis → mechanics → spirals → confession → fast-life/slow-death finale.
+export const RECOMMENDED_ORDER: string[] = [
+  "both-things-can-be-true",
+  "brain-on-shuffle",
+  "daydream-terrors",
+  "looping-mind",
+  "glitch-cycle",
+  "loud-brain-tired-bones",
+  "you-know",
+  "the-same-damn-knife",
+  "shame-keeps-blooming",
+  "i-break-me",
+  "fast-life-part-1",
+  "slow-death-part-2",
+];
+
+export function nextInOrder(slug: string): Song | undefined {
+  const i = RECOMMENDED_ORDER.indexOf(slug);
+  if (i === -1 || i === RECOMMENDED_ORDER.length - 1) return undefined;
+  return songBySlug(RECOMMENDED_ORDER[i + 1]);
+}
+
+export function prevInOrder(slug: string): Song | undefined {
+  const i = RECOMMENDED_ORDER.indexOf(slug);
+  if (i <= 0) return undefined;
+  return songBySlug(RECOMMENDED_ORDER[i - 1]);
+}
+
+export const STYLE_LABEL: Record<Song["style"], string> = {
+  rap: "Rap",
+  sing: "Sung",
+  hybrid: "Rap + sung",
+};
+
+export const MOOD_LABEL: Record<Song["mood"], string> = {
+  soft: "Soft",
+  raw: "Raw",
+  "head-bob-sob": "Head-bob sob",
+};

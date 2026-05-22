@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { songBySlug, SONGS } from "@/data/songs";
+import { songBySlug, SONGS, nextInOrder, prevInOrder, STYLE_LABEL, MOOD_LABEL, type Song } from "@/data/songs";
 import { factById } from "@/data/facts";
 import { resourceById } from "@/data/resources";
 import { FactCard } from "@/components/FactCard";
@@ -47,12 +47,14 @@ export const Route = createFileRoute("/songs/$slug")({
 });
 
 function SongPage() {
-  const { song } = Route.useLoaderData();
+  const { song } = Route.useLoaderData() as { song: Song };
   const related = song.relatedSlugs
     .map((s: string) => SONGS.find((x) => x.slug === s))
     .filter(Boolean) as typeof SONGS;
   const facts = song.factIds.map(factById).filter(Boolean) as NonNullable<ReturnType<typeof factById>>[];
   const resources = song.resourceIds.map(resourceById).filter(Boolean) as NonNullable<ReturnType<typeof resourceById>>[];
+  const next = nextInOrder(song.slug);
+  const prev = prevInOrder(song.slug);
 
   return (
     <article className="shell py-16 md:py-20">
@@ -64,6 +66,26 @@ function SongPage() {
         <div>
           <span className="eyebrow">Track {String(song.number).padStart(2, "0")} · {song.theme}</span>
           <h1 className="mt-3 text-5xl md:text-6xl">{song.title}</h1>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span
+              className="text-xs px-2 py-0.5 rounded-full"
+              style={{
+                background: "color-mix(in oklab, var(--color-primary) 14%, transparent)",
+                color: "var(--color-foreground)",
+              }}
+            >
+              {STYLE_LABEL[song.style]}
+            </span>
+            <span
+              className="text-xs px-2 py-0.5 rounded-full"
+              style={{
+                background: "var(--color-surface-offset)",
+                color: "var(--color-text-muted)",
+              }}
+            >
+              {MOOD_LABEL[song.mood]}
+            </span>
+          </div>
           <p className="mt-5 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "44ch" }}>
             {song.tagline}
           </p>
@@ -199,6 +221,69 @@ function SongPage() {
               </li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {/* Continue the journey */}
+      {(next || prev) && (
+        <section className="mt-20">
+          <div className="mb-6">
+            <span className="eyebrow">Keep the journey flowing</span>
+            <h2 className="mt-2 text-3xl">Where to go next.</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {prev && (
+              <Link
+                to="/songs/$slug"
+                params={{ slug: prev.slug }}
+                className="card-surface p-5 transition-transform hover:-translate-y-0.5"
+              >
+                <div
+                  style={{
+                    fontSize: "0.72rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    color: "var(--color-text-muted)",
+                  }}
+                >
+                  ← Previous in the journey
+                </div>
+                <h3 className="mt-2 text-xl" style={{ fontFamily: "var(--font-display)" }}>
+                  {prev.title}
+                </h3>
+                <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
+                  {prev.tagline}
+                </p>
+              </Link>
+            )}
+            {next && (
+              <Link
+                to="/songs/$slug"
+                params={{ slug: next.slug }}
+                className="card-surface p-5 transition-transform hover:-translate-y-0.5"
+                style={{
+                  background: "color-mix(in oklab, var(--color-primary) 10%, var(--color-surface))",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "0.72rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    color: "var(--color-primary)",
+                  }}
+                >
+                  Next in the journey →
+                </div>
+                <h3 className="mt-2 text-xl" style={{ fontFamily: "var(--font-display)" }}>
+                  {next.title}
+                </h3>
+                <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
+                  {next.tagline}
+                </p>
+              </Link>
+            )}
+          </div>
         </section>
       )}
     </article>
