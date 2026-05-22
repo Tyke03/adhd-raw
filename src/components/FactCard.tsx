@@ -1,4 +1,5 @@
 import type { Fact } from "@/data/facts";
+import { ShareButton } from "@/components/ShareButton";
 
 export function FactCard({ fact, compact = false }: { fact: Fact; compact?: boolean }) {
   return (
@@ -24,19 +25,22 @@ export function FactCard({ fact, compact = false }: { fact: Fact; compact?: bool
         {fact.headline}
       </h3>
       {!compact && (
-        <p style={{ color: "var(--color-text-muted)" }}>{fact.body}</p>
+        <p className="text-base" style={{ color: "var(--color-text-muted)" }}>{fact.body}</p>
       )}
-      <small
-        className="mt-auto block"
-        style={{
-          fontSize: "0.7rem",
-          textTransform: "uppercase",
-          letterSpacing: "0.12em",
-          color: "var(--color-text-faint)",
-        }}
-      >
-        Source · {fact.source}
-      </small>
+      <div className="mt-auto flex items-end justify-between gap-3">
+        <small
+          className="block"
+          style={{
+            fontSize: "0.72rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.12em",
+            color: "var(--color-text-faint)",
+          }}
+        >
+          Source · {fact.source}
+        </small>
+        <ShareButton path={`/research#${fact.id}`} stop={false} />
+      </div>
     </article>
   );
 }

@@ -5,6 +5,7 @@ import { resourceById } from "@/data/resources";
 import { FactCard } from "@/components/FactCard";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { ReactionChips } from "@/components/ReactionChips";
+import { ShareButton } from "@/components/ShareButton";
 
 export const Route = createFileRoute("/songs/$slug")({
   loader: ({ params }) => {
@@ -66,7 +67,7 @@ function SongPage() {
         <div>
           <span className="eyebrow">Track {String(song.number).padStart(2, "0")} · {song.theme}</span>
           <h1 className="mt-3 text-5xl md:text-6xl">{song.title}</h1>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <span
               className="text-xs px-2 py-0.5 rounded-full"
               style={{
@@ -85,12 +86,13 @@ function SongPage() {
             >
               {MOOD_LABEL[song.mood]}
             </span>
+            <ShareButton path={`/songs/${song.slug}`} label="Share this song" stop={false} />
           </div>
-          <p className="mt-5 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "44ch" }}>
+          <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)", maxWidth: "44ch" }}>
             {song.tagline}
           </p>
           <blockquote
-            className="mt-6 pl-5 text-xl"
+            className="mt-6 pl-5 text-2xl"
             style={{
               borderLeft: "2px solid var(--color-primary)",
               fontFamily: "var(--font-display)",
@@ -127,8 +129,8 @@ function SongPage() {
         </div>
         <div className="card-surface p-7">
           <span className="eyebrow">React to this track</span>
-          <p className="mt-3 mb-5" style={{ color: "var(--color-text-muted)" }}>
-            Plain "likes" don't fit this material. Pick whatever's true:
+          <p className="mt-3 mb-5 text-lg" style={{ color: "var(--color-text-muted)" }}>
+            Plain "likes" don't fit this material. Tap whatever's true — they save locally for now.
           </p>
           <ReactionChips targetKey={`song:${song.slug}`} />
         </div>
