@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { songBySlug, SONGS, nextInOrder, prevInOrder, STYLE_LABEL, MOOD_LABEL } from "@/data/songs";
+import { songBySlug, SONGS, nextInOrder, prevInOrder, STYLE_LABEL, MOOD_LABEL, type Song } from "@/data/songs";
 import { factById } from "@/data/facts";
 import { resourceById } from "@/data/resources";
 import { FactCard } from "@/components/FactCard";
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/songs/$slug")({
 });
 
 function SongPage() {
-  const { song } = Route.useLoaderData();
+  const { song } = Route.useLoaderData() as { song: Song };
   const related = song.relatedSlugs
     .map((s: string) => SONGS.find((x) => x.slug === s))
     .filter(Boolean) as typeof SONGS;
