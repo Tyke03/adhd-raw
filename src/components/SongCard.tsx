@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import type { Song } from "@/data/songs";
+import { STYLE_LABEL, MOOD_LABEL, type Song } from "@/data/songs";
 
 export function SongCard({ song }: { song: Song }) {
   return (
@@ -31,6 +31,26 @@ export function SongCard({ song }: { song: Song }) {
       <h3 className="mt-3 text-2xl" style={{ fontFamily: "var(--font-display)" }}>
         {song.title}
       </h3>
+      <div className="mt-2 flex flex-wrap gap-2">
+        <span
+          className="text-xs px-2 py-0.5 rounded-full"
+          style={{
+            background: "color-mix(in oklab, var(--color-primary) 14%, transparent)",
+            color: "var(--color-foreground)",
+          }}
+        >
+          {STYLE_LABEL[song.style]}
+        </span>
+        <span
+          className="text-xs px-2 py-0.5 rounded-full"
+          style={{
+            background: "var(--color-surface-offset)",
+            color: "var(--color-text-muted)",
+          }}
+        >
+          {MOOD_LABEL[song.mood]}
+        </span>
+      </div>
       <p className="mt-3" style={{ color: "var(--color-text-muted)" }}>
         {song.tagline}
       </p>
