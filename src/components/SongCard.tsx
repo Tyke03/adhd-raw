@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { STYLE_LABEL, MOOD_LABEL, type Song } from "@/data/songs";
+import { ShareButton } from "@/components/ShareButton";
 
 export function SongCard({ song }: { song: Song }) {
   return (
@@ -51,11 +52,11 @@ export function SongCard({ song }: { song: Song }) {
           {MOOD_LABEL[song.mood]}
         </span>
       </div>
-      <p className="mt-3" style={{ color: "var(--color-text-muted)" }}>
+      <p className="mt-3 text-base" style={{ color: "var(--color-text-muted)" }}>
         {song.tagline}
       </p>
       <blockquote
-        className="mt-4 pl-4"
+        className="mt-4 pl-4 text-lg"
         style={{
           borderLeft: "2px solid var(--color-primary)",
           color: "var(--color-foreground)",
@@ -64,6 +65,12 @@ export function SongCard({ song }: { song: Song }) {
       >
         “{song.pull}”
       </blockquote>
+      <div className="mt-5 flex items-center justify-between gap-2">
+        <span className="text-sm" style={{ color: "var(--color-primary)" }}>
+          Open song →
+        </span>
+        <ShareButton path={`/songs/${song.slug}`} />
+      </div>
     </Link>
   );
 }
