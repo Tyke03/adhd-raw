@@ -3,6 +3,7 @@ import { SONGS } from "@/data/songs";
 import { FACTS } from "@/data/facts";
 import { SongCard } from "@/components/SongCard";
 import { FactCard } from "@/components/FactCard";
+import { StyleNotice } from "@/components/StyleNotice";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,7 +26,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const featured = SONGS.filter((s) => s.available).slice(0, 3);
+  const featured = [
+    SONGS.find((s) => s.slug === "both-things-can-be-true")!,
+    SONGS.find((s) => s.slug === "i-break-me")!,
+    SONGS.find((s) => s.slug === "slow-death-part-2")!,
+  ];
   const heroFacts = [FACTS[0], FACTS[3], FACTS[5]]; // prison, lifespan, suicide
 
   return (
@@ -165,12 +170,15 @@ function Home() {
       <section className="shell pb-20">
         <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
           <div>
-            <span className="eyebrow">Songs available now</span>
+            <span className="eyebrow">All 12 songs available now</span>
             <h2 className="mt-2 text-4xl">Start with one. Stay for the rest.</h2>
           </div>
           <Link to="/songs" className="text-sm" style={{ color: "var(--color-primary)" }}>
             All 12 tracks →
           </Link>
+        </div>
+        <div className="mb-6">
+          <StyleNotice />
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((s) => (
