@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ReactionChips } from "@/components/ReactionChips";
+import { ShareButton } from "@/components/ShareButton";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -29,24 +30,34 @@ const PROMPTS = [
 
 const FEATURED_NOTES = [
   {
-    name: "anonymous",
+    name: "anon",
     tag: "after Shame Keeps Blooming",
-    body: "I'm 34 and I've never heard anyone describe the layered apology I've been doing since I was a kid. I cried in a parking lot. Thank you.",
+    body: "i don't even know what to say. i had to pull over. you put words on the thing i've been apologizing for since like 8 years old.",
   },
   {
-    name: "K., 41",
+    name: "M.",
     tag: "after Slow Death (Part 2)",
-    body: "My brother died from the slow version of this. Untreated, self-medicated, alone. People kept calling him irresponsible. He was sick. This song knows that.",
+    body: "my brother died like this. nobody called it adhd. everyone called him lazy and a screwup. i wish he could've heard this. thank you for not making it a tiktok moment.",
   },
   {
-    name: "anonymous",
-    tag: "after I Break Me",
-    body: "The line 'nobody ruined this, I just got there first' has been in my head for three days. I'm finally calling someone.",
+    name: "anon",
+    tag: "after Brain On Shuffle",
+    body: "lol the part where the brain just won't sit down. that's it. i'm 37 and i finally get it. i'm not broken im just THIS.",
   },
   {
     name: "Devon",
-    tag: "after Glitch Cycle",
-    body: "Day six of starting over for the last time — I have this written on a sticky note above my desk now. Solidarity.",
+    tag: "after the album",
+    body: "i listened all the way through twice. cried during one, head-bobbed during another, paused one bc it was too close. that's the point right? thanks man.",
+  },
+  {
+    name: "anon (sister of)",
+    tag: "from a family member",
+    body: "i don't have adhd. my brother does. i finally understand why he keeps disappearing and reappearing apologizing. this site is the first thing that didn't make me feel stupid for not getting it.",
+  },
+  {
+    name: "J., late dx",
+    tag: "after You Know",
+    body: "diagnosed at 42. listened to this last night. i'm not crazy, im not lazy, im not weak. i just needed someone to say it back to me.",
   },
 ];
 
@@ -56,20 +67,20 @@ export default function CommunityPage() {
       <div className="max-w-3xl">
         <span className="eyebrow">Community</span>
         <h1 className="mt-3 text-5xl md:text-6xl">A quieter kind of community.</h1>
-        <p className="mt-5 text-lg" style={{ color: "var(--color-text-muted)" }}>
+        <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
           No likes. No engagement metrics. Just emotionally specific reactions, a few prompts, and a
-          curated wall of notes from people who recognize themselves in the album.
+          wall of notes from people who recognize themselves in the album.
         </p>
-        <p className="mt-3 text-sm" style={{ color: "var(--color-text-faint)" }}>
+        <p className="mt-3 text-base" style={{ color: "var(--color-text-faint)" }}>
           Full posting is opening in a future update. For now this page is a working draft of the tone.
         </p>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
         <article className="card-surface p-7">
-          <span className="eyebrow">React to the project as a whole</span>
-          <p className="mt-3 mb-5" style={{ color: "var(--color-text-muted)" }}>
-            Click what's true. (Saved locally — nothing leaves your device yet.)
+          <span className="eyebrow">How did this impact you?</span>
+          <p className="mt-3 mb-5 text-lg" style={{ color: "var(--color-text-muted)" }}>
+            Tap any that are true. They actually count — saved on your device until full posting opens up.
           </p>
           <ReactionChips targetKey="site:overall" />
         </article>
@@ -94,16 +105,19 @@ export default function CommunityPage() {
       </div>
 
       <div className="mt-16">
-        <div className="mb-6">
-          <span className="eyebrow">Featured notes</span>
-          <h2 className="mt-2 text-3xl">From readers and listeners.</h2>
+        <div className="mb-6 flex items-end justify-between gap-3 flex-wrap">
+          <div>
+            <span className="eyebrow">Notes from readers and listeners</span>
+            <h2 className="mt-2 text-3xl">Other people in the same room.</h2>
+          </div>
+          <ShareButton path="/community" label="Share this page" size="md" stop={false} />
         </div>
         <ul className="grid gap-5 md:grid-cols-2">
           {FEATURED_NOTES.map((n, i) => (
-            <li key={i} className="card-surface p-6">
+            <li key={i} className="card-surface p-6 relative">
               <div
                 style={{
-                  fontSize: "0.72rem",
+                  fontSize: "0.78rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.12em",
                   color: "var(--color-primary)",
@@ -112,12 +126,12 @@ export default function CommunityPage() {
                 {n.tag}
               </div>
               <blockquote
-                className="mt-3 text-lg"
+                className="mt-3 text-xl"
                 style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}
               >
                 “{n.body}”
               </blockquote>
-              <div className="mt-3 text-sm" style={{ color: "var(--color-text-muted)" }}>
+              <div className="mt-3 text-base" style={{ color: "var(--color-text-muted)" }}>
                 — {n.name}
               </div>
             </li>
