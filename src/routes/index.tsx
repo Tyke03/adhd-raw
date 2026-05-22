@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "An album, the research behind it, and resources for adults whose ADHD is debilitating — not a superpower. Songs, sourced facts, and a community for the people living it.",
+          "An album by Brent K. Hubert (Clearly Confused), the research behind it, and resources for adults whose ADHD is debilitating — not a superpower. Made by someone with a documented Amen Clinic ADHD brain scan.",
       },
       { property: "og:title", content: "Unmanageable — Severe Adult ADHD" },
       {
@@ -45,9 +45,10 @@ function Home() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl" style={{ maxWidth: "14ch" }}>
               ADHD isn't your superpower. For some of us it's the thing that breaks the day.
             </h1>
-            <p className="mt-6 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "38ch" }}>
-              An album, the research, and the resources — for the small percentage of adults whose
-              ADHD is severe enough that life is genuinely unmanageable without help.
+            <p className="mt-6 text-xl" style={{ color: "var(--color-text-muted)", maxWidth: "40ch" }}>
+              I'm Brent. I made an album, gathered the research, and curated the resources — for the
+              small percentage of us whose ADHD is severe enough that life is genuinely unmanageable
+              without help. I'm one of you.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -85,14 +86,14 @@ function Home() {
             <p className="mt-3 text-2xl" style={{ fontFamily: "var(--font-display)" }}>
               ADHD: Clearly Confused
             </p>
-            <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
-              12 songs · by tyke0303 · 6 available now
+            <p className="mt-2 text-base" style={{ color: "var(--color-text-muted)" }}>
+              12 songs · by Brent K. Hubert (Clearly Confused) · all available now
             </p>
             <div className="mt-5 grid gap-3">
               {[
                 { l: "Tracks", v: "12 perspectives on one disorder" },
-                { l: "Theme", v: "No two ADHD brains present the same way" },
-                { l: "Tone", v: "Honest. Not inspirational." },
+                { l: "Theme", v: "No two ADHD brains present the same way — neither do these songs" },
+                { l: "Tone", v: "Honest. Not inspirational. Written from inside it." },
               ].map((s, i, arr) => (
                 <div
                   key={s.l}
@@ -101,7 +102,7 @@ function Home() {
                 >
                   <div
                     style={{
-                      fontSize: "0.7rem",
+                      fontSize: "0.75rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.14em",
                       color: "var(--color-text-muted)",
@@ -109,7 +110,7 @@ function Home() {
                   >
                     {s.l}
                   </div>
-                  <div className="mt-1 text-base font-semibold">{s.v}</div>
+                  <div className="mt-1 text-lg font-semibold">{s.v}</div>
                 </div>
               ))}
             </div>
@@ -125,23 +126,24 @@ function Home() {
             <h2 className="mt-3 text-3xl md:text-4xl">
               The "superpower" framing is a coping device for people who don't have it bad.
             </h2>
-            <p className="mt-4" style={{ color: "var(--color-text-muted)" }}>
-              ADHD has over 160,000 possible symptom combinations. For a small percentage of adults, those
-              combinations stack into something genuinely disabling — affecting the most fundamental brain
-              functions a person uses to manage their own life. Calling that a superpower isn't kindness.
-              It's erasure.
+            <p className="mt-4 text-lg" style={{ color: "var(--color-text-muted)" }}>
+              ADHD has over 160,000 possible symptom combinations. For a small percentage of us, those
+              combinations stack into something genuinely disabling — the most basic brain functions a
+              person uses to run their own life. I'm in that percentage. I have the Amen Clinic brain
+              scan to point at when I need to. Calling what I live with a superpower isn't kindness — it
+              quietly tells me my hardest day is something I should be charging admission for.
             </p>
-            <p className="mt-4" style={{ color: "var(--color-text-muted)" }}>
-              This site is for the people inside that small percentage, and for the loved ones trying to
-              understand why willpower keeps not being the answer.
+            <p className="mt-4 text-lg" style={{ color: "var(--color-text-muted)" }}>
+              This site is for the people inside that small percentage, and for the people who love us
+              and want to stop being confused about why willpower keeps not being the answer.
             </p>
           </article>
 
           <ul className="grid gap-4 list-none">
             {[
-              { k: "What this is", v: "Songs, sourced facts, and a directory of real resources." },
-              { k: "What this isn't", v: "A productivity hack site. A diagnosis tool. Inspirational." },
-              { k: "Who it's for", v: "Adults with severe ADHD — and the people in their lives." },
+              { k: "What this is", v: "Songs I made, sourced facts, and a directory of real resources." },
+              { k: "What this isn't", v: "A productivity hack site. A diagnosis tool. A pep talk." },
+              { k: "Who it's for", v: "Adults with severe ADHD — and the people who love us." },
             ].map((c) => (
               <li
                 key={c.k}
@@ -159,7 +161,7 @@ function Home() {
                 >
                   {c.k}
                 </div>
-                <div>{c.v}</div>
+                <div className="text-lg">{c.v}</div>
               </li>
             ))}
           </ul>
@@ -172,6 +174,10 @@ function Home() {
           <div>
             <span className="eyebrow">All 12 songs available now</span>
             <h2 className="mt-2 text-4xl">Start with one. Stay for the rest.</h2>
+            <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "52ch" }}>
+              I wrote and made all of these. They're not in track order on the home page — they're the
+              three I'd hand you first if we were sitting on a porch.
+            </p>
           </div>
           <Link to="/songs" className="text-sm" style={{ color: "var(--color-primary)" }}>
             All 12 tracks →
