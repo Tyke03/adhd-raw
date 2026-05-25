@@ -29,10 +29,11 @@ function SongsIndex() {
       <div className="max-w-3xl">
         <span className="eyebrow">The album</span>
         <h1 className="mt-3 text-5xl md:text-6xl">ADHD: Clearly Confused</h1>
-        <p className="mt-5 text-lg" style={{ color: "var(--color-text-muted)" }}>
-          Twelve songs, twelve angles on the same disorder. Each one carries one face of severe ADHD —
-          the loop, the shame, the speed, the crash, the contradiction. They're connected the way the
-          symptoms are: not in a line, but in a web.
+        <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
+          Twelve songs from inside the thing. Each one carries a different face of severe ADHD —
+          the loop, the shame, the speed, the crash, the contradiction. They're not a treatment
+          plan. They're not a roadmap. They're the quiet part, said out loud, twelve different
+          ways.
         </p>
       </div>
 
@@ -43,10 +44,11 @@ function SongsIndex() {
       {/* Recommended listening order */}
       <div className="mt-14">
         <span className="eyebrow">Recommended listening order</span>
-        <h2 className="mt-2 text-3xl">If you want the album as a journey.</h2>
-        <p className="mt-3 max-w-2xl" style={{ color: "var(--color-text-muted)" }}>
-          The track numbers are one order. This is the one I'd actually play it in — thesis,
-          mechanics, spirals, confession, and the Fast Life → Slow Death closer.
+        <h2 className="mt-2 text-3xl">If you want it the way it was actually built.</h2>
+        <p className="mt-3 max-w-2xl text-lg" style={{ color: "var(--color-text-muted)" }}>
+          The track numbers are one order. This is the one I'd actually play it in — recognition,
+          mechanics, spirals, confession, and the Fast Life → Slow Death close. There is no happy
+          ending built in. Both things can be true.
         </p>
         <ol className="mt-6 grid gap-2 list-none">
           {ordered.map((s, i) => (

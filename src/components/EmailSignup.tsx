@@ -40,7 +40,7 @@ export function EmailSignup({
     >
       <div className="grid gap-4 md:grid-cols-[1.1fr_1fr] items-center">
         <div>
-          <span className="eyebrow">Stay in the loop</span>
+          <span className="eyebrow">Put your email in while you feel it</span>
           <h2
             className="mt-2"
             style={{
@@ -50,15 +50,16 @@ export function EmailSignup({
             }}
           >
             {compact
-              ? "Get new songs and writing as they drop."
-              : "Hear it when the next song or piece lands."}
+              ? "Drop it like it never mattered tomorrow."
+              : "Drop it like it never mattered tomorrow if you choose."}
           </h2>
           <p
             className="mt-2"
             style={{ color: "var(--color-text-muted)", fontSize: "0.98rem" }}
           >
-            No spam, no marketing speak. Just the next song, the next post, or a
-            resource update — from me, Brent.
+            No engagement funnel. No five emails a week. No pressure. Just this: if something new
+            exists here, you'll know. Or don't. There's a next shiny object and that makes perfect
+            sense too.
           </p>
         </div>
         <form onSubmit={handleSubmit} className="flex flex-wrap gap-2">
@@ -97,7 +98,7 @@ export function EmailSignup({
               fontSize: "0.95rem",
             }}
           >
-            {status === "saved" ? "You're on the list" : "Sign me up"}
+            {status === "saved" ? "Got it — no pressure" : "Drop it in"}
           </button>
         </form>
       </div>

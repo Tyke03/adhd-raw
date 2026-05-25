@@ -66,13 +66,14 @@ export default function CommunityPage() {
     <section className="shell py-16 md:py-24">
       <div className="max-w-3xl">
         <span className="eyebrow">Community</span>
-        <h1 className="mt-3 text-5xl md:text-6xl">A quieter kind of community.</h1>
+        <h1 className="mt-3 text-5xl md:text-6xl">Other people in the same room.</h1>
         <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
-          No likes. No engagement metrics. Just emotionally specific reactions, a few prompts, and a
-          wall of notes from people who recognize themselves in the album.
+          No likes. No engagement metrics. No movement to join. Just a few reactions you can leave
+          for yourself, a couple of prompts to sit with, and a wall of notes from people who already
+          heard themselves in one of the songs.
         </p>
         <p className="mt-3 text-base" style={{ color: "var(--color-text-faint)" }}>
-          Full posting is opening in a future update. For now this page is a working draft of the tone.
+          Open posting is being built. For now this is the tone.
         </p>
       </div>
 
