@@ -1,9 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SONGS } from "@/data/songs";
-import { FACTS } from "@/data/facts";
 import { SongCard } from "@/components/SongCard";
-import { FactCard } from "@/components/FactCard";
 import { StyleNotice } from "@/components/StyleNotice";
+import { FACTS } from "@/data/facts";
 
 export const Route = createFileRoute("/")({
   head: () => ({
