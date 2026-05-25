@@ -27,10 +27,11 @@ function ResourcesPage() {
     <section className="shell py-16 md:py-24">
       <div className="max-w-3xl">
         <span className="eyebrow">Resources</span>
-        <h1 className="mt-3 text-5xl md:text-6xl">If today is one of the bad ones, start here.</h1>
-        <p className="mt-5 text-lg" style={{ color: "var(--color-text-muted)" }}>
-          A short, honest directory. Crisis support first. Then advocacy, then education. None of these
-          paid to be here.
+        <h1 className="mt-3 text-5xl md:text-6xl">Not fixes. Footholds.</h1>
+        <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
+          These are not cures. There are no cures. These are places, people, and frameworks that
+          take adult ADHD seriously enough to stop insulting it with lazy explanations. Crisis
+          support first. Then the rest. Nothing here paid to be on the list.
         </p>
       </div>
 

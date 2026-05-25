@@ -25,13 +25,14 @@ function ResearchPage() {
   return (
     <section className="shell py-16 md:py-24">
       <div className="max-w-3xl">
-        <span className="eyebrow">Research</span>
+        <span className="eyebrow">The truth</span>
         <h1 className="mt-3 text-5xl md:text-6xl">
-          When you stack the numbers, "superpower" stops being a kindness.
+          The facts, said the way they actually feel from inside it.
         </h1>
-        <p className="mt-5 text-lg" style={{ color: "var(--color-text-muted)" }}>
-          Each card pairs one hard stat with one sharp reading of what it means. Treat them as
-          interruptions, not background facts. They're the receipts behind every song on this album.
+        <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
+          These aren't campaign stats. They're the receipts behind the songs. Each one is a number
+          plus a sentence we've spent a long time refusing to say out loud. None of them are here
+          to shock you. They're here so the right person stops feeling crazy for noticing.
         </p>
       </div>
 
@@ -44,9 +45,10 @@ function ResearchPage() {
       <div className="mt-12 card-surface p-6 max-w-3xl">
         <span className="eyebrow">A note on sources</span>
         <p className="mt-3" style={{ color: "var(--color-text-muted)" }}>
-          Citations here summarize peer-reviewed literature, CDC/SAMHSA data, and the long-term ADHD
-          outcome research from Russell Barkley and colleagues. Specific papers are listed on each card.
-          When in doubt, talk to a clinician — these stats describe populations, not your individual case.
+          These summarize peer-reviewed literature, CDC/SAMHSA data, and the long-term ADHD outcome
+          research from Russell Barkley and colleagues. Specific sources are on each card. Stats
+          describe populations, not your individual case. The point isn't the percentage. The point
+          is that the pattern is real, and you weren't imagining it.
         </p>
       </div>
     </section>

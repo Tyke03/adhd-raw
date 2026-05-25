@@ -8,17 +8,17 @@ import { StyleNotice } from "@/components/StyleNotice";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Unmanageable — Severe Adult ADHD by Clearly Confused" },
+      { title: "You know, don't you. — ADHD: Clearly Confused" },
       {
         name: "description",
         content:
-          "An album by Brent K. Hubert (Clearly Confused), the research behind it, and resources for adults whose ADHD is debilitating — not a superpower. Made by someone with a documented Amen Clinic ADHD brain scan.",
+          "Twelve songs built from inside severe adult ADHD — not looking back at it from a safe distance, because there is no safe distance. By Brent K. Hubert (Clearly Confused).",
       },
-      { property: "og:title", content: "Unmanageable — Severe Adult ADHD" },
+      { property: "og:title", content: "You know, don't you." },
       {
         property: "og:description",
         content:
-          "Twelve songs about severe adult ADHD, paired with the research and resources that explain why this isn't cute chaos.",
+          "From inside it, to inside it. An album, the research behind it, and a few footholds — not fixes — for severe adult ADHD.",
       },
     ],
   }),
@@ -27,11 +27,15 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const featured = [
-    SONGS.find((s) => s.slug === "both-things-can-be-true")!,
+    SONGS.find((s) => s.slug === "you-know")!,
     SONGS.find((s) => s.slug === "i-break-me")!,
     SONGS.find((s) => s.slug === "slow-death-part-2")!,
   ];
-  const heroFacts = [FACTS[0], FACTS[3], FACTS[5]]; // prison, lifespan, suicide
+  const truth = {
+    prison: FACTS.find((f) => f.id === "prison")!,
+    sud: FACTS.find((f) => f.id === "sud")!,
+    suicide: FACTS.find((f) => f.id === "suicide")!,
+  };
 
   return (
     <>
@@ -40,15 +44,32 @@ function Home() {
         <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-end">
           <div>
             <span className="eyebrow mb-5 inline-flex">
-              <span aria-hidden="true">●</span> Severe adult ADHD — the kind you don't post about
+              <span aria-hidden="true">●</span> From inside it, to inside it
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl" style={{ maxWidth: "14ch" }}>
-              ADHD isn't your superpower. For some of us it's the thing that breaks the day.
+              You know, don't you.
             </h1>
             <p className="mt-6 text-xl" style={{ color: "var(--color-text-muted)", maxWidth: "40ch" }}>
-              I'm Brent. I made an album, gathered the research, and curated the resources — for the
-              small percentage of us whose ADHD is severe enough that life is genuinely unmanageable
-              without help. I'm one of you.
+              Not "I lose my keys sometimes." Not "I get distracted when I'm bored." The other thing.
+              The real one. The one you've never been able to explain to anyone, including yourself,
+              even though you understand it better than any doctor ever has.
+            </p>
+            <blockquote
+              className="mt-7 pl-5 text-2xl md:text-3xl"
+              style={{
+                borderLeft: "2px solid var(--color-primary)",
+                fontFamily: "var(--font-display)",
+                fontStyle: "italic",
+                maxWidth: "32ch",
+                color: "var(--color-foreground)",
+              }}
+            >
+              There is no getting out. I can cope. I can't fix or solve.
+            </blockquote>
+            <p className="mt-6 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "44ch" }}>
+              This isn't a support group. It isn't a tidy resource hub. It's 12 songs built from
+              inside the thing — not looking back at it from a safe distance, because there is no
+              safe distance. If one of them lands, that's why.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -59,10 +80,10 @@ function Home() {
                   color: "var(--color-primary-foreground)",
                 }}
               >
-                Listen to the album
+                Hear the songs
               </Link>
               <Link
-                to="/research"
+                to="/about"
                 className="inline-flex items-center justify-center min-h-12 px-5 rounded-full text-sm font-bold"
                 style={{
                   background: "var(--color-surface)",
@@ -70,7 +91,7 @@ function Home() {
                   border: "1px solid color-mix(in oklab, var(--color-foreground) 12%, transparent)",
                 }}
               >
-                See the research
+                Why this exists
               </Link>
             </div>
           </div>
@@ -87,13 +108,13 @@ function Home() {
               ADHD: Clearly Confused
             </p>
             <p className="mt-2 text-base" style={{ color: "var(--color-text-muted)" }}>
-              12 songs · by Brent K. Hubert (Clearly Confused) · all available now
+              12 songs · by Brent K. Hubert (Clearly Confused) · made at 2am, from inside it
             </p>
             <div className="mt-5 grid gap-3">
               {[
-                { l: "Tracks", v: "12 perspectives on one disorder" },
-                { l: "Theme", v: "No two ADHD brains present the same way — neither do these songs" },
-                { l: "Tone", v: "Honest. Not inspirational. Written from inside it." },
+                { l: "Tracks", v: "12 angles on one disorder. No system. No blueprint." },
+                { l: "Promise", v: "Recognition, not recovery. Accurate language for what happened to your life." },
+                { l: "Voice", v: "Not your champion. Your mirror." },
               ].map((s, i, arr) => (
                 <div
                   key={s.l}
@@ -122,28 +143,29 @@ function Home() {
       <section className="shell pb-20">
         <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
           <article className="card-surface p-7">
-            <span className="eyebrow">Why this site exists</span>
+            <span className="eyebrow">Why this exists</span>
             <h2 className="mt-3 text-3xl md:text-4xl">
-              The "superpower" framing is a coping device for people who don't have it bad.
+              I'm not your champion. I'm your mirror.
             </h2>
             <p className="mt-4 text-lg" style={{ color: "var(--color-text-muted)" }}>
-              ADHD has over 160,000 possible symptom combinations. For a small percentage of us, those
-              combinations stack into something genuinely disabling — the most basic brain functions a
-              person uses to run their own life. I'm in that percentage. I have the Amen Clinic brain
-              scan to point at when I need to. Calling what I live with a superpower isn't kindness — it
-              quietly tells me my hardest day is something I should be charging admission for.
+              I'm not reaching back from the other side of this. There is no other side. I made this
+              at 2am because my brain brought me here again, like it does. I'll be running on no sleep
+              and burnt out by early afternoon. I have 100 tabs open to build this and can't open one
+              email.
             </p>
             <p className="mt-4 text-lg" style={{ color: "var(--color-text-muted)" }}>
-              This site is for the people inside that small percentage, and for the people who love us
-              and want to stop being confused about why willpower keeps not being the answer.
+              You've been the champion every single day — fighting an impossible thing that knows you
+              intimately because it is you. And you've never even been able to say that out loud. So
+              I'm not going to call this a superpower. That's a coping device for people who don't
+              have it bad.
             </p>
           </article>
 
           <ul className="grid gap-4 list-none">
             {[
-              { k: "What this is", v: "Songs I made, sourced facts, and a directory of real resources." },
-              { k: "What this isn't", v: "A productivity hack site. A diagnosis tool. A pep talk." },
-              { k: "Who it's for", v: "Adults with severe ADHD — and the people who love us." },
+              { k: "What this is", v: "Twelve songs, the truth behind them, and a few footholds. Made from inside the thing." },
+              { k: "What this isn't", v: "A movement. A recovery story. A productivity hack. A pep talk." },
+              { k: "Who it's for", v: "The person who already knows. And the people who love them and finally want to stop being confused." },
             ].map((c) => (
               <li
                 key={c.k}
@@ -172,11 +194,11 @@ function Home() {
       <section className="shell pb-20">
         <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
           <div>
-            <span className="eyebrow">All 12 songs available now</span>
-            <h2 className="mt-2 text-4xl">Start with one. Stay for the rest.</h2>
+            <span className="eyebrow">Song first. Explanation second.</span>
+            <h2 className="mt-2 text-4xl">Start with one. See if it knows you.</h2>
             <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "52ch" }}>
-              I wrote and made all of these. They're not in track order on the home page — they're the
-              three I'd hand you first if we were sitting on a porch.
+              I wrote and made all twelve. These three are the ones I'd hand you first — the
+              recognition song, the confession, and the closer. If one lands, the rest are waiting.
             </p>
           </div>
           <Link to="/songs" className="text-sm" style={{ color: "var(--color-primary)" }}>
@@ -193,20 +215,74 @@ function Home() {
         </div>
       </section>
 
-      {/* Did you know cards */}
+      {/* The Truth */}
       <section className="shell pb-20">
-        <div className="mb-8">
-          <span className="eyebrow">Did you know</span>
-          <h2 className="mt-2 text-4xl">Three numbers that should change the conversation.</h2>
+        <div className="mb-8 max-w-3xl">
+          <span className="eyebrow">The truth</span>
+          <h2 className="mt-2 text-4xl md:text-5xl">Not shocking stats. Just the quiet part, said out loud.</h2>
+          <p className="mt-4 text-lg" style={{ color: "var(--color-text-muted)" }}>
+            Three pieces of the picture. The facts are real — but the point isn't the number.
+            It's what we keep refusing to call by its name.
+          </p>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {heroFacts.map((f) => (
-            <FactCard key={f.id} fact={f} />
-          ))}
+
+        <div className="grid gap-6 md:grid-cols-3">
+          <article className="card-surface p-6">
+            <h3 className="text-2xl" style={{ fontFamily: "var(--font-display)" }}>
+              1 in 4 people in prison.
+            </h3>
+            <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)" }}>
+              That's where we send a huge number of people with untreated ADHD. Not to doctors. Not
+              to support. A cage. Because "can't regulate impulse and emotion without proper brain
+              chemistry" is easier for society to read as a moral failure than as a neurological
+              impairment.
+            </p>
+            <p className="mt-3 text-base" style={{ color: "var(--color-foreground)" }}>
+              We criminalize symptoms when we refuse to understand what caused them.
+            </p>
+            <small className="mt-4 block" style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--color-text-faint)" }}>
+              Source · {truth.prison.source}
+            </small>
+          </article>
+
+          <article className="card-surface p-6">
+            <h3 className="text-2xl" style={{ fontFamily: "var(--font-display)" }}>
+              Everyone "totally has ADD."
+            </h3>
+            <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)" }}>
+              People joke they have it because they got bored in a meeting. That is not this. ADHD
+              is failing the class you love. The professor telling you that you're one of the
+              brightest students he has — while also explaining that you're failing because you
+              cannot do the homework.
+            </p>
+            <p className="mt-3 text-base" style={{ color: "var(--color-foreground)" }}>
+              ADHD is not struggling to do things you hate. It is often failing in the exact
+              direction of your greatest strengths.
+            </p>
+          </article>
+
+          <article className="card-surface p-6">
+            <h3 className="text-2xl" style={{ fontFamily: "var(--font-display)" }}>
+              Not weak. Self-medicating.
+            </h3>
+            <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)" }}>
+              Around <strong style={{ color: "var(--color-foreground)" }}>6×</strong> the risk of a
+              substance use disorder. Many people with severe ADHD aren't bad-habit addicts. They've
+              been managing a dopamine problem since childhood with whatever gave temporary relief:
+              substances, chaos, sex, risk, novelty, speed, conflict, crisis, screens.
+            </p>
+            <p className="mt-3 text-base" style={{ color: "var(--color-foreground)" }}>
+              What gets called moral failure is often untreated symptom management.
+            </p>
+            <small className="mt-4 block" style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--color-text-faint)" }}>
+              Source · {truth.sud.source}
+            </small>
+          </article>
         </div>
+
         <div className="mt-6">
           <Link to="/research" className="text-sm" style={{ color: "var(--color-primary)" }}>
-            See all the data →
+            More of the truth →
           </Link>
         </div>
       </section>
@@ -221,9 +297,10 @@ function Home() {
           }}
         >
           <div>
-            <h2 className="text-3xl">If your ADHD is making your life unmanageable, you are not alone in this.</h2>
+            <h2 className="text-3xl">Not fixes. Footholds.</h2>
             <p className="mt-3" style={{ color: "var(--color-text-muted)" }}>
-              Real resources, real crisis lines, real research — all curated by someone who has needed them.
+              There are no cures. These are places, people, and frameworks that take adult ADHD
+              seriously enough to stop insulting it with lazy explanations.
             </p>
           </div>
           <Link
@@ -231,7 +308,7 @@ function Home() {
             className="inline-flex items-center justify-center min-h-12 px-5 rounded-full text-sm font-bold"
             style={{ background: "var(--color-primary)", color: "var(--color-primary-foreground)" }}
           >
-            Find help →
+            See the footholds →
           </Link>
         </div>
       </section>
