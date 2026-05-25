@@ -33,7 +33,6 @@ function Home() {
   const truth = {
     prison: FACTS.find((f) => f.id === "prison")!,
     sud: FACTS.find((f) => f.id === "sud")!,
-    suicide: FACTS.find((f) => f.id === "suicide")!,
   };
 
   return (
