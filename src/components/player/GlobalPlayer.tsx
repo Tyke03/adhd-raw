@@ -69,13 +69,7 @@ export function GlobalPlayer() {
       className="relative flex-1 min-w-[260px] max-w-[560px]"
     >
       <div
-        className="flex items-center gap-2 px-2 py-1.5 rounded-full"
-        style={{
-          background:
-            "color-mix(in oklab, var(--color-surface-offset) 85%, transparent)",
-          border:
-            "1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent)",
-        }}
+        className="player-pulse flex items-center gap-2 px-2 py-1.5 rounded-full"
       >
         <button
           onClick={p.prev}

@@ -172,4 +172,36 @@
     font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em;
     border: 1px solid color-mix(in oklab, var(--color-primary) 30%, transparent);
   }
+  .player-pulse {
+    background: linear-gradient(
+      90deg,
+      oklch(0.7 0.22 340),
+      oklch(0.75 0.2 25),
+      oklch(0.78 0.2 70),
+      oklch(0.7 0.22 340)
+    );
+    background-size: 300% 100%;
+    border: 1px solid oklch(0.85 0.18 30) !important;
+    animation: player-pulse-glow 2.4s ease-in-out infinite,
+               player-pulse-shift 6s linear infinite;
+  }
+  @keyframes player-pulse-glow {
+    0%, 100% {
+      box-shadow:
+        0 0 0 0 oklch(0.75 0.22 25 / 0.55),
+        0 0 18px 2px oklch(0.75 0.22 25 / 0.45);
+    }
+    50% {
+      box-shadow:
+        0 0 0 6px oklch(0.75 0.22 25 / 0),
+        0 0 32px 8px oklch(0.78 0.22 340 / 0.65);
+    }
+  }
+  @keyframes player-pulse-shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .player-pulse { animation: none; }
+  }
 }
