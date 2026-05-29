@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailSignup } from "@/components/EmailSignup";
+import { PlayerProvider } from "@/components/player/PlayerProvider";
 
 function NotFoundComponent() {
   return (
@@ -117,14 +118,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteHeader />
-      <main id="content">
-        <Outlet />
-      </main>
-      <section className="shell pb-20">
-        <EmailSignup />
-      </section>
-      <SiteFooter />
+      <PlayerProvider>
+        <SiteHeader />
+        <main id="content">
+          <Outlet />
+        </main>
+        <section className="shell pb-20">
+          <EmailSignup />
+        </section>
+        <SiteFooter />
+      </PlayerProvider>
     </QueryClientProvider>
   );
 }
