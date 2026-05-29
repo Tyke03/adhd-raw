@@ -28,38 +28,6 @@ const PROMPTS = [
   "What's the loop you can't seem to get out of?",
 ];
 
-const FEATURED_NOTES = [
-  {
-    name: "anon",
-    tag: "after Shame Keeps Blooming",
-    body: "i don't even know what to say. i had to pull over. you put words on the thing i've been apologizing for since like 8 years old.",
-  },
-  {
-    name: "M.",
-    tag: "after Slow Death (Part 2)",
-    body: "my brother died like this. nobody called it adhd. everyone called him lazy and a screwup. i wish he could've heard this. thank you for not making it a tiktok moment.",
-  },
-  {
-    name: "anon",
-    tag: "after Brain On Shuffle",
-    body: "lol the part where the brain just won't sit down. that's it. i'm 37 and i finally get it. i'm not broken im just THIS.",
-  },
-  {
-    name: "Devon",
-    tag: "after the album",
-    body: "i listened all the way through twice. cried during one, head-bobbed during another, paused one bc it was too close. that's the point right? thanks man.",
-  },
-  {
-    name: "anon (sister of)",
-    tag: "from a family member",
-    body: "i don't have adhd. my brother does. i finally understand why he keeps disappearing and reappearing apologizing. this site is the first thing that didn't make me feel stupid for not getting it.",
-  },
-  {
-    name: "J., late dx",
-    tag: "after You Know",
-    body: "diagnosed at 42. listened to this last night. i'm not crazy, im not lazy, im not weak. i just needed someone to say it back to me.",
-  },
-];
 
 export default function CommunityPage() {
   return (
@@ -108,36 +76,52 @@ export default function CommunityPage() {
       <div className="mt-16">
         <div className="mb-6 flex items-end justify-between gap-3 flex-wrap">
           <div>
-            <span className="eyebrow">Notes from readers and listeners</span>
-            <h2 className="mt-2 text-3xl">Other people in the same room.</h2>
+            <span className="eyebrow">Notes wall · under construction</span>
+            <h2 className="mt-2 text-3xl">This wall is staying empty on purpose.</h2>
           </div>
           <ShareButton path="/community" label="Share this page" size="md" stop={false} />
         </div>
-        <ul className="grid gap-5 md:grid-cols-2">
-          {FEATURED_NOTES.map((n, i) => (
-            <li key={i} className="card-surface p-6 relative">
+        <div className="card-surface p-7">
+          <p className="text-lg" style={{ color: "var(--color-text-muted)" }}>
+            I'd rather leave this blank than fake it. Real notes from real listeners will go here
+            once open posting is wired up. If something on this site landed for you and you want
+            it on the wall, the email signup below is the easiest way to send it in.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {[
+              { tag: "placeholder", body: "Yeah — that one really hits the mark." },
+              { tag: "placeholder", body: "This is actually good stuff." },
+            ].map((n, i) => (
               <div
+                key={i}
+                className="p-5 rounded-lg"
                 style={{
-                  fontSize: "0.78rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.12em",
-                  color: "var(--color-primary)",
+                  background:
+                    "color-mix(in oklab, var(--color-surface-offset) 70%, transparent)",
+                  border:
+                    "1px dashed color-mix(in oklab, var(--color-foreground) 18%, transparent)",
                 }}
               >
-                {n.tag}
+                <div
+                  style={{
+                    fontSize: "0.72rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.12em",
+                    color: "var(--color-text-faint)",
+                  }}
+                >
+                  {n.tag}
+                </div>
+                <blockquote
+                  className="mt-2 text-lg"
+                  style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}
+                >
+                  “{n.body}”
+                </blockquote>
               </div>
-              <blockquote
-                className="mt-3 text-xl"
-                style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}
-              >
-                “{n.body}”
-              </blockquote>
-              <div className="mt-3 text-base" style={{ color: "var(--color-text-muted)" }}>
-                — {n.name}
-              </div>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
