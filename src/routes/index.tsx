@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SONGS } from "@/data/songs";
 import { SongCard } from "@/components/SongCard";
 import { StyleNotice } from "@/components/StyleNotice";
+import { BrainConstellation } from "@/components/BrainConstellation";
 import { FACTS } from "@/data/facts";
 
 export const Route = createFileRoute("/")({
@@ -135,6 +136,20 @@ function Home() {
             </div>
           </aside>
         </div>
+      </section>
+
+      {/* Brain constellation — all 12 songs as neurons */}
+      <section className="shell pb-16">
+        <div className="mb-6 max-w-3xl">
+          <span className="eyebrow">The album as a brain</span>
+          <h2 className="mt-2 text-4xl md:text-5xl">All twelve, wired together.</h2>
+          <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)" }}>
+            Each pill is a song. The lines are the threads they share — recognition,
+            shame, speed, crash. Hover a neuron to see what's inside it. Click to
+            open the song.
+          </p>
+        </div>
+        <BrainConstellation />
       </section>
 
       {/* Manifesto strip */}
