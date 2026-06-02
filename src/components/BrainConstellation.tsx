@@ -13,34 +13,44 @@ import { SONGS, STYLE_LABEL, MOOD_LABEL, type Song } from "@/data/songs";
 // Spherical layout: 3 rings stacked on a dome.
 // Each entry: phi (vertical angle from top, 0..π/2), and ring offset.
 const RING_LAYOUT: Array<{ ring: number; count: number; phi: number }> = [
-  { ring: 0, count: 3, phi: 0.35 }, // top crown
-  { ring: 1, count: 4, phi: 0.85 }, // upper middle
-  { ring: 2, count: 5, phi: 1.35 }, // wide base
+  { ring: 0, count: 3, phi: 0.55 }, // top crown
+  { ring: 1, count: 4, phi: 1.05 }, // upper middle
+  { ring: 2, count: 5, phi: 1.55 }, // wide base
 ];
 
 type Placed = {
   song: Song;
-  // normalized -1..1 plane coords + depth 0..1 (1 = closest)
-  x: number;
-  y: number;
-  z: number;
+  x: number; // -1..1 screen
+  y: number; // -1..1 screen
+  z: number; // 0..1 depth (1 = closest)
 };
+
+// Tilt the sphere forward so back nodes lift up on screen and don't collide
+// with their front-row counterparts.
+const TILT = 0.55; // ~31°
+const COS_T = Math.cos(TILT);
+const SIN_T = Math.sin(TILT);
 
 function placeSongs(songs: Song[]): Placed[] {
   const placed: Placed[] = [];
   let i = 0;
   for (const ring of RING_LAYOUT) {
     for (let k = 0; k < ring.count && i < songs.length; k++, i++) {
-      // Offset alternating rings so they don't stack vertically.
       const thetaOffset = ring.ring % 2 === 0 ? 0 : Math.PI / ring.count;
       const theta = (k / ring.count) * Math.PI * 2 + thetaOffset;
-      const r = Math.sin(ring.phi); // horizontal radius
-      const x = r * Math.cos(theta);
-      // Tilt the dome forward: map phi to vertical with perspective squash.
-      const y = -Math.cos(ring.phi) * 0.85 + 0.05;
-      // Depth: nodes in the front (sin(theta) > 0) come forward.
-      const z = (Math.sin(theta) + 1) / 2; // 0..1
-      placed.push({ song: songs[i], x, y, z });
+      // True 3D unit-sphere coords.
+      const sx = Math.sin(ring.phi) * Math.cos(theta);
+      const sy = -Math.cos(ring.phi);
+      const sz = Math.sin(ring.phi) * Math.sin(theta);
+      // Rotate around X so the back of the sphere is visible above the front.
+      const projY = sy * COS_T - sz * SIN_T;
+      const projZ = sy * SIN_T + sz * COS_T;
+      placed.push({
+        song: songs[i],
+        x: sx * 0.95,
+        y: projY * 0.82,
+        z: (projZ + 1) / 2,
+      });
     }
   }
   return placed;
