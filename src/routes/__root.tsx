@@ -13,6 +13,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailSignup } from "@/components/EmailSignup";
 import { PlayerProvider } from "@/components/player/PlayerProvider";
+import { DidYouKnowBubble } from "@/components/DidYouKnowBubble";
 
 function NotFoundComponent() {
   return (
