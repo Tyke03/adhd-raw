@@ -4,6 +4,7 @@ export type Fact = {
   headline: string;
   body: string;
   source: string;
+  sourceUrl: string;
   tags: string[]; // matches song themes
 };
 
@@ -14,6 +15,7 @@ export const FACTS: Fact[] = [
     headline: "About 1 in 4 incarcerated adults meet ADHD criteria.",
     body: "Roughly 10× the general adult rate. Untreated impulsivity, emotional dysregulation, and self-medication get filtered into punishment systems instead of care.",
     source: "Young et al., meta-analysis of adult prison populations",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/25612939/",
     tags: ["impulsivity", "self-destruction", "shame"],
   },
   {
@@ -22,6 +24,7 @@ export const FACTS: Fact[] = [
     headline: "Over a third of diagnosed U.S. adults with ADHD get no treatment at all.",
     body: "When this many diagnosed people are still untreated, “just get help” stops being advice and starts sounding like denial of a system failure.",
     source: "CDC / National Survey, U.S. adult ADHD treatment data",
+    sourceUrl: "https://www.cdc.gov/mmwr/volumes/73/wr/mm7340a1.htm",
     tags: ["systems", "shame"],
   },
   {
@@ -30,6 +33,7 @@ export const FACTS: Fact[] = [
     headline: "Most diagnosed adults weren't diagnosed until adulthood.",
     body: "Around 15.5 million U.S. adults live with ADHD, and the majority spent formative years being judged before they were understood.",
     source: "U.S. adult ADHD prevalence estimates, 2023",
+    sourceUrl: "https://www.cdc.gov/mmwr/volumes/73/wr/mm7340a1.htm",
     tags: ["identity", "shame", "looping"],
   },
   {
@@ -37,7 +41,8 @@ export const FACTS: Fact[] = [
     stat: "Shorter life",
     headline: "An ADHD diagnosis now predicts a shorter lifespan.",
     body: "Driven by unmet need, untreated ADHD, undertreated co-occurring conditions, accidents, addiction, smoking, and suicide. Not harmless neurodiversity — a public-health failure.",
-    source: "Russell Barkley & long-term outcome research",
+    source: "Barkley / UCL life-expectancy study, BJPsych Open 2025",
+    sourceUrl: "https://www.cambridge.org/core/journals/bjpsych-open/article/life-expectancy-and-yearsoflifelost-for-adults-with-diagnosed-adhd-in-england/",
     tags: ["self-destruction", "slow-death"],
   },
   {
@@ -45,7 +50,8 @@ export const FACTS: Fact[] = [
     stat: "+74%",
     headline: "ADHD is associated with a 74% higher crash risk.",
     body: "Roughly double the rate of traffic-ticket events. When people say ADHD is just about “focus,” they erase its real safety consequences.",
-    source: "Driving / motor-vehicle outcome studies",
+    source: "Chang et al., JAMA Psychiatry — ADHD & motor-vehicle crashes",
+    sourceUrl: "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2627973",
     tags: ["fast-life", "impulsivity"],
   },
   {
@@ -53,7 +59,8 @@ export const FACTS: Fact[] = [
     stat: ">2×",
     headline: "Suicide attempts and self-harm are more than twice as likely in ADHD.",
     body: "A condition with that profile should never be trivialized as cute chaos or a productivity quirk.",
-    source: "Meta-analyses of ADHD and suicidality",
+    source: "Septier et al., meta-analysis of ADHD and suicidality (2019)",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/31415806/",
     tags: ["shame", "self-destruction", "i-break-me"],
   },
   {
@@ -62,6 +69,7 @@ export const FACTS: Fact[] = [
     headline: "About 6× higher risk of developing a substance use disorder.",
     body: "For many, the addiction didn't come first. The untreated brain did. Self-medication is a predictable outcome of untreated executive dysfunction.",
     source: "Wilens et al., ADHD & substance use",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/21295143/",
     tags: ["self-destruction", "fast-life", "slow-death"],
   },
   {
@@ -69,7 +77,8 @@ export const FACTS: Fact[] = [
     stat: "74%",
     headline: "Untreated adults fare worse than treated peers across 74% of long-term outcomes.",
     body: "Academic, occupational, social, and substance-use domains. The question isn't whether ADHD is “real enough” to treat — it's how much damage happens when it isn't.",
-    source: "Long-term ADHD outcome reviews",
+    source: "Shaw et al., systematic review of long-term ADHD outcomes",
+    sourceUrl: "https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-10-99",
     tags: ["systems", "looping"],
   },
   {
@@ -78,6 +87,7 @@ export const FACTS: Fact[] = [
     headline: "Most adults on stimulants had trouble filling prescriptions in 2023.",
     body: "A treatable disorder being made less treatable by supply and policy failures.",
     source: "2023 U.S. stimulant shortage surveys",
+    sourceUrl: "https://add.org/adhd-medication-shortage-survey-results/",
     tags: ["systems", "shame"],
   },
   {
@@ -86,6 +96,7 @@ export const FACTS: Fact[] = [
     headline: "ADHD has 160,000+ possible symptom combinations.",
     body: "No two ADHD brains present identically. The DSM gives a label; lived reality gives a fingerprint. That's why a single album needs twelve different songs.",
     source: "DSM-5 ADHD symptom combinatorics",
+    sourceUrl: "https://www.psychiatry.org/psychiatrists/practice/dsm",
     tags: ["identity", "all"],
   },
   {
@@ -93,7 +104,8 @@ export const FACTS: Fact[] = [
     stat: "~99%",
     headline: "Nearly all adults with ADHD report rejection-sensitive dysphoria.",
     body: "Emotional dysregulation isn't a side dish to attention problems — for many, it's the loudest symptom. Criticism lands like a physical wound.",
-    source: "Dodson, ADHD & emotional regulation literature",
+    source: "Dodson, ADHD & emotional regulation (ADDitude)",
+    sourceUrl: "https://www.additudemag.com/rejection-sensitive-dysphoria-and-adhd/",
     tags: ["shame", "i-break-me"],
   },
   {
@@ -102,6 +114,7 @@ export const FACTS: Fact[] = [
     headline: "Executive function in ADHD lags ~30% behind chronological age.",
     body: "A 30-year-old can have the time-management, organization, and self-regulation of a teenager — while being held to adult standards by everyone.",
     source: "Barkley, executive function research",
+    sourceUrl: "https://russellbarkley.org/factsheets/ADHD_EF_and_SR.pdf",
     tags: ["looping", "loud-brain", "daydream"],
   },
   {
@@ -110,6 +123,7 @@ export const FACTS: Fact[] = [
     headline: "ADHD prisoners commit ~8× more aggressive incidents than other prisoners.",
     body: "And ~6× more than inmates with antisocial personality disorder. ADHD was the strongest predictor of violent offending in adult male prisoners — above substance misuse.",
     source: "Young & Bramham, Wiley Forensic Neuroscience",
+    sourceUrl: "https://onlinelibrary.wiley.com/doi/book/10.1002/9781118468531",
     tags: ["impulsivity", "self-destruction"],
   },
   {
@@ -117,7 +131,8 @@ export const FACTS: Fact[] = [
     stat: "~58%",
     headline: "Lifetime substance use disorder risk in adults with ADHD is around 58%.",
     body: "Roughly 12% of patients in SUD clinics have unrecognized, untreated ADHD. The addiction often isn't the first problem — the untreated brain is.",
-    source: "Young & Bramham, Wiley",
+    source: "van Emmerik-van Oortmerssen et al., IASP/ICASA review",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/22209385/",
     tags: ["self-destruction", "fast-life"],
   },
   {
@@ -126,6 +141,7 @@ export const FACTS: Fact[] = [
     headline: "On ADHD medication, criminality drops 32% in men and 41% in women.",
     body: "A 25,656-person Swedish cohort found medication periods cut criminality across every sensitivity analysis (17–46%). Stimulants HR 0.66; non-stimulants HR 0.76.",
     source: "Lichtenstein et al., NEJM 2012",
+    sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa1203241",
     tags: ["systems", "impulsivity"],
   },
   {
@@ -133,7 +149,8 @@ export const FACTS: Fact[] = [
     stat: "~500,000",
     headline: "Roughly half a million incarcerated U.S. adults likely have ADHD right now.",
     body: "~2 million U.S. adults are incarcerated at any moment; applying ~25% prison prevalence yields ~475–500k with ADHD — a point-in-time imprisonment rate ~5× the non-ADHD rate.",
-    source: "BJS Correctional Populations 2023; Wiley meta-analyses",
+    source: "BJS Correctional Populations 2023 + Wiley meta-analyses",
+    sourceUrl: "https://bjs.ojp.gov/library/publications/correctional-populations-united-states-2022-statistical-tables",
     tags: ["systems", "self-destruction"],
   },
   {
@@ -141,7 +158,8 @@ export const FACTS: Fact[] = [
     stat: "~23%",
     headline: "Lifetime imprisonment risk for ADHD adults is roughly 23% — versus ~4.6% for everyone else.",
     body: "Toy model from a 5× cohort multiplier on a 5.7% baseline. About 1 in 4 ever-imprisoned adults has ADHD — matching the empirical prison prevalence.",
-    source: "Modeled from Lichtenstein NEJM 2012 + Bohnert NSW 2025",
+    source: "Modeled from Lichtenstein NEJM 2012 + BJS lifetime imprisonment data",
+    sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa1203241",
     tags: ["systems", "shame"],
   },
   {
@@ -149,7 +167,8 @@ export const FACTS: Fact[] = [
     stat: "~75%",
     headline: "About 3 in 4 adults with ADHD have at least one other psychiatric disorder.",
     body: "Combined-type ADHD: 55.7% comorbidity vs 39.2% in inattentive type. The 'just ADHD' presentation is the exception, not the rule.",
-    source: "BMJ Best Practice; Torgersen et al., BMJ Open 2018",
+    source: "Torgersen et al., BMJ Open 2018",
+    sourceUrl: "https://bmjopen.bmj.com/content/8/2/e018027",
     tags: ["i-break-me", "looping"],
   },
   {
@@ -157,7 +176,8 @@ export const FACTS: Fact[] = [
     stat: "~45%",
     headline: "About 45% of youth offenders screen positive for ADHD — up to two-thirds in some samples.",
     body: "The pipeline starts early. Untreated executive dysfunction in childhood becomes a juvenile record before anyone calls it a disorder.",
-    source: "Young & Bramham, Wiley Forensic Neuroscience",
+    source: "Young et al., systematic review of ADHD in youth offenders",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/25612939/",
     tags: ["systems", "shame"],
   },
 ];

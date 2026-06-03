@@ -19,6 +19,8 @@ type Ctx = {
   isPlaying: boolean;
   currentTime: number;
   duration: number;
+  muted: boolean;
+  setMuted: (m: boolean) => void;
   play: () => void;
   pause: () => void;
   toggle: () => void;
@@ -49,7 +51,13 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [muted, setMutedState] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+
+  const setMuted = useCallback((m: boolean) => {
+    setMutedState(m);
+    if (audioRef.current) audioRef.current.muted = m;
+  }, []);
 
   // Hydrate from localStorage (client only)
   useEffect(() => {
@@ -166,6 +174,8 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         isPlaying,
         currentTime,
         duration,
+        muted,
+        setMuted,
         play,
         pause,
         toggle,
@@ -182,6 +192,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
           ref={audioRef}
           src={current.audio}
           preload="metadata"
+          muted={muted}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}

@@ -171,7 +171,15 @@ export function DidYouKnowBubble() {
               marginBottom: "0.75rem",
             }}
           >
-            Source · {fact.source}
+            Source ·{" "}
+            <a
+              href={fact.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--color-primary)", textDecoration: "underline" }}
+            >
+              {fact.source} ↗
+            </a>
           </small>
           <div className="flex items-center justify-between gap-2">
             <button

@@ -37,7 +37,15 @@ export function FactCard({ fact, compact = false }: { fact: Fact; compact?: bool
             color: "var(--color-text-faint)",
           }}
         >
-          Source · {fact.source}
+          Source ·{" "}
+          <a
+            href={fact.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--color-primary)", textDecoration: "underline" }}
+          >
+            {fact.source}
+          </a>
         </small>
         <ShareButton path={`/research#${fact.id}`} stop={false} />
       </div>
