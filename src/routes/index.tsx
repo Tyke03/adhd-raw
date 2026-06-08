@@ -168,17 +168,16 @@ function Home() {
             </p>
             <p className="mt-4 text-lg" style={{ color: "var(--color-text-muted)" }}>
               You've been the champion every single day — fighting an impossible thing that knows you
-              intimately because it is you. And you've never even been able to say that out loud. So
-              I'm not going to call this a superpower. That's a coping device for people who don't
-              have it bad.
+              intimately because it is you. And maybe you've never even been able to say that out loud. So
+              I'm not going to call this a superpower. Traditional society's structure is built around linear brains. Neurodivergent brains are essentially fish out of water.
             </p>
           </article>
 
           <ul className="grid gap-4 list-none">
             {[
-              { k: "What this is", v: "Twelve songs, the truth behind them, and a few footholds. Made from inside the thing." },
-              { k: "What this isn't", v: "A movement. A recovery story. A productivity hack. A pep talk." },
-              { k: "Who it's for", v: "The person who already knows. And the people who love them and finally want to stop being confused." },
+              { k: "What this is", v: "Twelve songs, attempting to name what normally eludes verbal description, in my personal \"Head Bob Sob\" (TM pending) genre." },
+              { k: "WHAT THIS IS NOT", v: "A movement. A recovery story. A productivity hack. A pep talk." },
+              { k: "Who it's for", v: "You! Or not. If you have ADHD or not, you may enjoy some, or all of these songs. But if you have Severe Adult ADHD \"YOU KNOW\" these songs." },
             ].map((c) => (
               <li
                 key={c.k}
@@ -210,7 +209,7 @@ function Home() {
             <span className="eyebrow">Song first. Explanation second.</span>
             <h2 className="mt-2 text-4xl">Start with one. See if it knows you.</h2>
             <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "52ch" }}>
-              I wrote and made all twelve. These three are the ones I'd hand you first — the
+              I made and love all twelve, each feeling like a piece of my truth, but these three are the ones I'd hand you first — the
               recognition song, the confession, and the closer. If one lands, the rest are waiting.
             </p>
           </div>
@@ -269,7 +268,7 @@ function Home() {
               cannot do the homework.
             </p>
             <p className="mt-3 text-base" style={{ color: "var(--color-foreground)" }}>
-              ADHD is not struggling to do things you hate. It is often failing in the exact
+              ADHD is not just struggling to do things you hate. It is often failing in the exact
               direction of your greatest strengths.
             </p>
           </article>

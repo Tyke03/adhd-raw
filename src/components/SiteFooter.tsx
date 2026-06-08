@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div>
           <p>
             <strong style={{ color: "var(--color-foreground)", fontFamily: "var(--font-display)" }}>Unmanageable</strong>{" "}
-            — songs and research about severe adult ADHD by Brent K. Hubert, releasing as Clearly Confused.
+            — songs and research about severe adult ADHD by Brent K. Hubert living all it so Clearly Confused.
           </p>
           <p className="mt-2" style={{ color: "var(--color-text-faint)" }}>
             Not a replacement for medical care. If you're in crisis, dial or text 988 (US).
