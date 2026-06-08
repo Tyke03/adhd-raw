@@ -32,7 +32,7 @@ function AboutPage() {
         </p>
         <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
           You've been the champion every single day — fighting an impossible thing that knows you
-          intimately because it is you. And you've never even been able to say that out loud.
+          intimately because it is you. And maybe you've never even been able to say that out loud. So I'm not going to call this a superpower. Traditional society's structure is built around linear brains. Neurodivergent brains are essentially fish out of water.
         </p>
 
         <blockquote
