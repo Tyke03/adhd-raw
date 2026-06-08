@@ -282,6 +282,7 @@ export function BrainConstellation() {
                           "1px solid color-mix(in oklab, var(--color-primary) 35%, transparent)",
                         boxShadow: "0 10px 24px oklch(0 0 0 / 0.45)",
                         animation: "neuron-pop 260ms cubic-bezier(.2,.7,.2,1) both",
+                        zIndex: 200,
                       }}
                     >
                       <div
