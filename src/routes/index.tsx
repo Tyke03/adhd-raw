@@ -28,7 +28,8 @@ export const Route = createFileRoute("/")({
 function Home() {
   const featured = [
     SONGS.find((s) => s.slug === "you-know")!,
-    SONGS.find((s) => s.slug === "i-break-me")!,
+    SONGS.find((s) => s.slug === "shame-keeps-blooming")!,
+    SONGS.find((s) => s.slug === "fast-life-part-1")!,
     SONGS.find((s) => s.slug === "slow-death-part-2")!,
   ];
   const truth = {
