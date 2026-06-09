@@ -28,7 +28,8 @@ export const Route = createFileRoute("/")({
 function Home() {
   const featured = [
     SONGS.find((s) => s.slug === "you-know")!,
-    SONGS.find((s) => s.slug === "i-break-me")!,
+    SONGS.find((s) => s.slug === "shame-keeps-blooming")!,
+    SONGS.find((s) => s.slug === "fast-life-part-1")!,
     SONGS.find((s) => s.slug === "slow-death-part-2")!,
   ];
   const truth = {
@@ -209,8 +210,8 @@ function Home() {
             <span className="eyebrow">Song first. Explanation second.</span>
             <h2 className="mt-2 text-4xl">Start with one. See if it knows you.</h2>
             <p className="mt-3 text-lg" style={{ color: "var(--color-text-muted)", maxWidth: "52ch" }}>
-              I made and love all twelve, each feeling like a piece of my truth, but these three are the ones I'd hand you first — the
-              recognition song, the confession, and the closer. If one lands, the rest are waiting.
+              I made and love all twelve, each feeling like a piece of my truth, but these four are the ones I'd hand you first — the
+              recognition, the confession, the fast life, and the closer. If one lands, the rest are waiting.
             </p>
           </div>
           <Link to="/songs" className="text-sm" style={{ color: "var(--color-primary)" }}>
@@ -220,7 +221,7 @@ function Home() {
         <div className="mb-6">
           <StyleNotice />
         </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {featured.map((s) => (
             <SongCard key={s.slug} song={s} />
           ))}
