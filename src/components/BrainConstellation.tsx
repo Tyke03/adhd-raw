@@ -240,26 +240,26 @@ export function BrainConstellation() {
                   {
                     label: "Hook",
                     value: `“${n.song.pull}”`,
-                    angle: -150,
-                    dist: 190,
+                    angle: -165,
+                    dist: 280,
                   },
                   {
                     label: "Theme",
                     value: n.song.theme,
-                    angle: -110,
-                    dist: 175,
+                    angle: -120,
+                    dist: 260,
                   },
                   {
                     label: "Style",
                     value: `${STYLE_LABEL[n.song.style]} · ${MOOD_LABEL[n.song.mood]}`,
-                    angle: -70,
-                    dist: 175,
+                    angle: -60,
+                    dist: 260,
                   },
                   {
                     label: "Tagline",
                     value: n.song.tagline,
-                    angle: -30,
-                    dist: 190,
+                    angle: -15,
+                    dist: 280,
                   },
                 ].map((p) => {
                   const rad = (p.angle * Math.PI) / 180;
