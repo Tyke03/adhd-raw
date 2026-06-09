@@ -70,7 +70,7 @@ export const SONGS: Song[] = [
   {
     slug: "fast-life-part-1",
     title: "Fast Life (Part 1 of 2)",
-    number: 4,
+    number: 11,
     available: true,
     audio: "/audio/fast-life-part-1.mp3",
     theme: "the engine everyone claps for",
@@ -87,7 +87,7 @@ export const SONGS: Song[] = [
   {
     slug: "glitch-cycle",
     title: "Glitch Cycle",
-    number: 5,
+    number: 4,
     available: true,
     audio: "/audio/glitch-cycle.mp3",
     theme: "the named loop",
@@ -104,7 +104,7 @@ export const SONGS: Song[] = [
   {
     slug: "i-break-me",
     title: "I Break Me",
-    number: 6,
+    number: 5,
     available: true,
     audio: "/audio/i-break-me.mp3",
     theme: "the weapon turned inward",
@@ -121,7 +121,7 @@ export const SONGS: Song[] = [
   {
     slug: "looping-mind",
     title: "Looping Mind",
-    number: 7,
+    number: 6,
     available: true,
     audio: "/audio/looping-mind.mp3",
     theme: "the room that won't get quiet",
@@ -138,7 +138,7 @@ export const SONGS: Song[] = [
   {
     slug: "loud-brain-tired-bones",
     title: "Loud Brain, Tired Bones",
-    number: 8,
+    number: 7,
     available: true,
     audio: "/audio/loud-brain-tired-bones.mp3",
     theme: "the regular operational tax",
@@ -155,7 +155,7 @@ export const SONGS: Song[] = [
   {
     slug: "shame-keeps-blooming",
     title: "Shame Keeps Blooming",
-    number: 9,
+    number: 8,
     available: true,
     audio: "/audio/shame-keeps-blooming.mp3",
     theme: "the religion of self-blame",
@@ -172,7 +172,7 @@ export const SONGS: Song[] = [
   {
     slug: "slow-death-part-2",
     title: "Slow Death (Part 2 of 2)",
-    number: 10,
+    number: 12,
     available: true,
     audio: "/audio/slow-death-part-2.mp3",
     theme: "the closer · the part nobody sees",
@@ -189,7 +189,7 @@ export const SONGS: Song[] = [
   {
     slug: "the-same-damn-knife",
     title: "The Same Damn Knife",
-    number: 11,
+    number: 9,
     available: true,
     audio: "/audio/the-same-damn-knife.mp3",
     theme: "still here",
@@ -206,7 +206,7 @@ export const SONGS: Song[] = [
   {
     slug: "you-know",
     title: "You Know",
-    number: 12,
+    number: 10,
     available: true,
     audio: "/audio/you-know.mp3",
     theme: "the torture of knowing",
