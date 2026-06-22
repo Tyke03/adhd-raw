@@ -4,6 +4,10 @@ export type Song = {
   number: number;
   available: boolean;
   audio?: string;
+  // Embed URLs for streaming. If neither is set, SongEmbed shows a
+  // "Stream opening soon on Spotify" placeholder instead of broken controls.
+  spotifyEmbedUrl?: string;
+  soundcloudEmbedUrl?: string;
   theme: string; // short phrase, e.g. "the looping mind"
   tagline: string;
   description: string;

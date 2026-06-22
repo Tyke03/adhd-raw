@@ -12,9 +12,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailSignup } from "@/components/EmailSignup";
-import { PlayerProvider } from "@/components/player/PlayerProvider";
 import { DidYouKnowBubble } from "@/components/DidYouKnowBubble";
-import { WelcomeGate } from "@/components/WelcomeGate";
 
 function NotFoundComponent() {
   return (
@@ -120,18 +118,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PlayerProvider>
-        <WelcomeGate />
-        <SiteHeader />
-        <DidYouKnowBubble />
-        <main id="content">
-          <Outlet />
-        </main>
-        <section className="shell pb-20">
-          <EmailSignup />
-        </section>
-        <SiteFooter />
-      </PlayerProvider>
+      <SiteHeader />
+      <DidYouKnowBubble />
+      <main id="content">
+        <Outlet />
+      </main>
+      <section id="email-signup" className="shell pb-20">
+        <EmailSignup />
+      </section>
+      <SiteFooter />
     </QueryClientProvider>
   );
 }

@@ -12,8 +12,7 @@ export function SiteFooter() {
       <div className="shell grid gap-4 md:grid-cols-[1fr_auto] text-sm" style={{ color: "var(--color-text-muted)" }}>
         <div>
           <p>
-            <strong style={{ color: "var(--color-foreground)", fontFamily: "var(--font-display)" }}>Unmanageable</strong>{" "}
-            — songs and research about severe adult ADHD by Brent K. Hubert living all it so Clearly Confused.
+            Brent K. Hubert, releasing as Clearly Confused — living all of it, still in it.
           </p>
           <p className="mt-2" style={{ color: "var(--color-text-faint)" }}>
             Not a replacement for medical care. If you're in crisis, dial or text 988 (US).
@@ -23,8 +22,10 @@ export function SiteFooter() {
           <Link to="/songs">Songs</Link>
           <Link to="/research">Research</Link>
           <Link to="/resources">Resources</Link>
-          <Link to="/community">Community</Link>
           <Link to="/about">About</Link>
+          <Link to="/community" style={{ color: "var(--color-text-muted)" }}>
+            Community — opening soon
+          </Link>
         </nav>
       </div>
     </footer>

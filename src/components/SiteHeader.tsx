@@ -1,11 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { GlobalPlayer } from "@/components/player/GlobalPlayer";
 
 const NAV = [
   { to: "/songs", label: "Songs" },
   { to: "/research", label: "Research" },
   { to: "/resources", label: "Resources" },
-  { to: "/community", label: "Community" },
   { to: "/about", label: "About" },
 ] as const;
 
@@ -53,8 +51,6 @@ export function SiteHeader() {
             </strong>
           </span>
         </Link>
-
-        <GlobalPlayer />
 
         <nav aria-label="Primary" className="flex flex-wrap items-center gap-1">
           {NAV.map((item) => (
