@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SONGS, RECOMMENDED_ORDER, songBySlug, STYLE_LABEL, MOOD_LABEL } from "@/data/songs";
 import { SongCard } from "@/components/SongCard";
-import { StyleNotice } from "@/components/StyleNotice";
 
 export const Route = createFileRoute("/songs/")({
   head: () => ({
@@ -29,17 +28,23 @@ function SongsIndex() {
       <div className="max-w-3xl">
         <span className="eyebrow">The album</span>
         <h1 className="mt-3 text-5xl md:text-6xl">ADHD: Clearly Confused</h1>
-        <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
-          Twelve songs from inside the thing. Each one carries a different face of severe ADHD —
-          the loop, the shame, the speed, the crash, the contradiction. They're not a treatment
-          plan. They're not a roadmap. They're the quiet part, said out loud, twelve different
-          ways.
-        </p>
       </div>
 
-      <div className="mt-10 max-w-3xl">
-        <StyleNotice />
-      </div>
+      <p
+        className="max-w-3xl"
+        style={{
+          fontStyle: "italic",
+          opacity: 0.65,
+          fontSize: "0.95rem",
+          textAlign: "center",
+          marginTop: "8px",
+          marginBottom: "24px",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        Different songs, different styles — find the one that knows you.
+      </p>
 
       {/* Recommended listening order */}
       <div className="mt-14">

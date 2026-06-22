@@ -2,16 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { FACTS } from "@/data/facts";
 import { ShareButton } from "@/components/ShareButton";
 
-function pickRandomIndex(prev: number, len: number) {
-  if (len <= 1) return 0;
-  let next = prev;
-  while (next === prev) next = Math.floor(Math.random() * len);
-  return next;
-}
+const ROTATE_MS = 5000;
+const MAX_DOTS = 6;
 
 export function DidYouKnowBubble() {
   const [open, setOpen] = useState(false);
-  const [idx, setIdx] = useState(() => Math.floor(Math.random() * FACTS.length));
+  const [idx, setIdx] = useState(0);
+  const [fading, setFading] = useState(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   // Close on outside click / Esc
@@ -33,19 +30,26 @@ export function DidYouKnowBubble() {
     };
   }, [open]);
 
-  function handleToggle() {
-    setOpen((o) => {
-      const next = !o;
-      if (next) setIdx((p) => pickRandomIndex(p, FACTS.length));
-      return next;
-    });
-  }
+  // Auto-rotate facts every 5s while open
+  useEffect(() => {
+    if (!open || FACTS.length < 2) return;
+    const id = window.setInterval(() => {
+      setFading(true);
+      window.setTimeout(() => {
+        setIdx((i) => (i + 1) % FACTS.length);
+        setFading(false);
+      }, 400);
+    }, ROTATE_MS);
+    return () => window.clearInterval(id);
+  }, [open]);
 
-  function shuffle() {
-    setIdx((p) => pickRandomIndex(p, FACTS.length));
+  function handleToggle() {
+    setOpen((o) => !o);
   }
 
   const fact = FACTS[idx];
+  const dotCount = Math.min(FACTS.length, MAX_DOTS);
+  const activeDot = idx % dotCount;
 
   return (
     <div
@@ -66,7 +70,7 @@ export function DidYouKnowBubble() {
         type="button"
         onClick={handleToggle}
         aria-expanded={open}
-        aria-label="Did you know? Show a random ADHD research finding"
+        aria-label="Did you know? Show rotating ADHD research findings"
         className="dyk-bubble"
         style={{
           pointerEvents: "auto",
@@ -101,7 +105,7 @@ export function DidYouKnowBubble() {
       {open && (
         <div
           role="dialog"
-          aria-label="Did you know — ADHD research finding"
+          aria-label="Did you know — rotating ADHD research findings"
           style={{
             pointerEvents: "auto",
             width: "min(22rem, calc(100vw - 2rem))",
@@ -112,7 +116,6 @@ export function DidYouKnowBubble() {
             padding: "1.1rem 1.15rem 1rem",
             boxShadow:
               "0 18px 40px -18px color-mix(in oklab, var(--color-primary) 60%, transparent), 0 4px 14px -6px rgba(0,0,0,0.35)",
-            animation: "fade-in 0.25s ease-out",
           }}
         >
           <div className="flex items-center justify-between gap-3 mb-2">
@@ -134,69 +137,89 @@ export function DidYouKnowBubble() {
               ×
             </button>
           </div>
-          <strong
+          <div
             style={{
-              display: "block",
-              fontFamily: "var(--font-display)",
-              fontSize: "1.9rem",
-              lineHeight: 1,
-              color: "var(--color-foreground)",
-              marginBottom: "0.55rem",
+              opacity: fading ? 0 : 1,
+              transition: "opacity 400ms ease",
             }}
           >
-            {fact.stat}
-          </strong>
-          <h3
-            className="text-base font-bold leading-snug"
-            style={{ fontFamily: "var(--font-body)", marginBottom: "0.5rem" }}
-          >
-            {fact.headline}
-          </h3>
-          <p
-            style={{
-              fontSize: "0.85rem",
-              color: "var(--color-text-muted)",
-              marginBottom: "0.75rem",
-            }}
-          >
-            {fact.body}
-          </p>
-          <small
-            style={{
-              display: "block",
-              fontSize: "0.68rem",
-              textTransform: "uppercase",
-              letterSpacing: "0.12em",
-              color: "var(--color-text-faint)",
-              marginBottom: "0.75rem",
-            }}
-          >
-            Source ·{" "}
-            <a
-              href={fact.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "var(--color-primary)", textDecoration: "underline" }}
-            >
-              {fact.source} ↗
-            </a>
-          </small>
-          <div className="flex items-center justify-between gap-2">
-            <button
-              type="button"
-              onClick={shuffle}
+            <strong
               style={{
-                background: "var(--color-surface-offset)",
-                border: "1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent)",
+                display: "block",
+                fontFamily: "var(--font-display)",
+                fontSize: "1.9rem",
+                lineHeight: 1,
                 color: "var(--color-foreground)",
-                padding: "0.35rem 0.7rem",
-                fontSize: "0.78rem",
-                borderRadius: 999,
-                cursor: "pointer",
+                marginBottom: "0.55rem",
               }}
             >
-              Another one
-            </button>
+              {fact.stat}
+            </strong>
+            <h3
+              className="text-base font-bold leading-snug"
+              style={{ fontFamily: "var(--font-body)", marginBottom: "0.5rem" }}
+            >
+              {fact.headline}
+            </h3>
+            <p
+              style={{
+                fontSize: "0.85rem",
+                color: "var(--color-text-muted)",
+                marginBottom: "0.75rem",
+              }}
+            >
+              {fact.body}
+            </p>
+            <small
+              style={{
+                display: "block",
+                fontSize: "0.68rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                color: "var(--color-text-faint)",
+                marginBottom: "0.75rem",
+              }}
+            >
+              Source ·{" "}
+              <a
+                href={fact.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--color-primary)", textDecoration: "underline" }}
+              >
+                {fact.source} ↗
+              </a>
+            </small>
+          </div>
+
+          {/* Dot pagination */}
+          <div
+            aria-hidden="true"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 6,
+              marginBottom: "0.6rem",
+            }}
+          >
+            {Array.from({ length: dotCount }).map((_, i) => (
+              <span
+                key={i}
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: 999,
+                  background:
+                    i === activeDot
+                      ? "var(--color-primary)"
+                      : "color-mix(in oklab, var(--color-foreground) 22%, transparent)",
+                  transition: "background 200ms ease",
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center justify-end gap-2">
             <ShareButton path={`/research#${fact.id}`} stop={false} />
           </div>
         </div>

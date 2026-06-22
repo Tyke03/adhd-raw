@@ -3,10 +3,25 @@ import { useState } from "react";
 export function EmailSignup({
   variant = "band",
 }: {
-  variant?: "band" | "compact";
+  variant?: "band" | "compact" | "minimal";
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "saved" | "invalid">("idle");
+
+  if (variant === "minimal") {
+    return (
+      <a
+        href="#email-signup"
+        style={{
+          color: "var(--color-primary)",
+          textDecoration: "underline",
+          fontSize: "0.95rem",
+        }}
+      >
+        Stay in the loop →
+      </a>
+    );
+  }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
