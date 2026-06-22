@@ -85,7 +85,7 @@ function SongPage() {
                 color: "var(--color-text-muted)",
               }}
             >
-              {MOOD_LABEL[song.mood]}
+              {song.mood === "head-bob-sob" ? <HeadBobSob /> : MOOD_LABEL[song.mood]}
             </span>
             <ShareButton path={`/songs/${song.slug}`} label="Share this song" stop={false} />
           </div>
@@ -106,20 +106,7 @@ function SongPage() {
         </div>
 
         <div>
-          {song.available && song.audio ? (
-            <AudioPlayer src={song.audio} title={song.title} />
-          ) : (
-            <div
-              className="card-surface p-6"
-              style={{ background: "color-mix(in oklab, var(--color-surface-offset) 92%, transparent)" }}
-            >
-              <span className="eyebrow">Coming soon</span>
-              <p className="mt-3" style={{ color: "var(--color-text-muted)" }}>
-                This track is part of the album but isn't published here yet. The write-up below is the
-                full context it lands inside.
-              </p>
-            </div>
-          )}
+          <SongEmbed song={song} />
         </div>
       </header>
 
