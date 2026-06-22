@@ -3,9 +3,10 @@ import { songBySlug, SONGS, nextInOrder, prevInOrder, STYLE_LABEL, MOOD_LABEL, t
 import { factById } from "@/data/facts";
 import { resourceById } from "@/data/resources";
 import { FactCard } from "@/components/FactCard";
-import { AudioPlayer } from "@/components/AudioPlayer";
+import { SongEmbed } from "@/components/SongEmbed";
 import { ReactionChips } from "@/components/ReactionChips";
 import { ShareButton } from "@/components/ShareButton";
+import { HeadBobSob } from "@/components/HeadBobSob";
 
 export const Route = createFileRoute("/songs/$slug")({
   loader: ({ params }) => {
