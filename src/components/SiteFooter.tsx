@@ -23,9 +23,6 @@ export function SiteFooter() {
           <Link to="/research">Research</Link>
           <Link to="/resources">Resources</Link>
           <Link to="/about">About</Link>
-          <Link to="/community" style={{ color: "var(--color-text-muted)" }}>
-            Community — opening soon
-          </Link>
         </nav>
       </div>
     </footer>
