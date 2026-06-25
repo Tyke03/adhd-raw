@@ -3,7 +3,7 @@ export type Song = {
   title: string;
   number: number;
   available: boolean;
-  audio?: string;
+  audioUrl?: string;
   // Embed URLs for streaming. If neither is set, SongEmbed shows a
   // "Stream opening soon on Spotify" placeholder instead of broken controls.
   spotifyEmbedUrl?: string;
@@ -25,7 +25,7 @@ export const SONGS: Song[] = [
     title: "Both Things Can Be True",
     number: 1,
     available: true,
-    audio: "/audio/both-things-can-be-true.mp3",
+    audioUrl: "/audio/both-things-can-be-true.mp3",
     theme: "the contradiction",
     tagline: "The truth gets more honest when it stops demanding one clean answer.",
     description:
@@ -42,7 +42,7 @@ export const SONGS: Song[] = [
     title: "Brain On Shuffle",
     number: 2,
     available: true,
-    audio: "/audio/brain-on-shuffle.mp3",
+    audioUrl: "/audio/brain-on-shuffle.mp3",
     theme: "the anti-superpower song",
     tagline: "My greatest gift keeps tripping me.",
     description:
@@ -59,7 +59,7 @@ export const SONGS: Song[] = [
     title: "Daydream Terrors",
     number: 3,
     available: true,
-    audio: "/audio/daydream-terrors.mp3",
+    audioUrl: "/audio/daydream-terrors.mp3",
     theme: "the imagination that turns on you",
     tagline: "The imagination that builds worlds and then uses them as evidence against you.",
     description:
@@ -76,7 +76,7 @@ export const SONGS: Song[] = [
     title: "Glitch Cycle",
     number: 4,
     available: true,
-    audio: "/audio/glitch-cycle.mp3",
+    audioUrl: "/audio/glitch-cycle.mp3",
     theme: "the named loop",
     tagline: "Not mystery. Not drama. A known loop, still undefeated.",
     description:
@@ -93,7 +93,7 @@ export const SONGS: Song[] = [
     title: "I Break Me",
     number: 5,
     available: true,
-    audio: "/audio/i-break-me.mp3",
+    audioUrl: "/audio/i-break-me.mp3",
     theme: "the weapon turned inward",
     tagline: "I am the weapon used against me. And I spend all my time sharpening the blades.",
     description:
@@ -110,7 +110,7 @@ export const SONGS: Song[] = [
     title: "Looping Mind",
     number: 6,
     available: true,
-    audio: "/audio/looping-mind.mp3",
+    audioUrl: "/audio/looping-mind.mp3",
     theme: "the room that won't get quiet",
     tagline: "The point where exhaustion stops wanting inspiration and starts wanting silence.",
     description:
@@ -127,7 +127,7 @@ export const SONGS: Song[] = [
     title: "Loud Brain, Tired Bones",
     number: 7,
     available: true,
-    audio: "/audio/loud-brain-tired-bones.mp3",
+    audioUrl: "/audio/loud-brain-tired-bones.mp3",
     theme: "the regular operational tax",
     tagline: "Ordinary suffering, repeated so often people forget it counts.",
     description:
@@ -144,7 +144,7 @@ export const SONGS: Song[] = [
     title: "Shame Keeps Blooming",
     number: 8,
     available: true,
-    audio: "/audio/shame-keeps-blooming.mp3",
+    audioUrl: "/audio/shame-keeps-blooming.mp3",
     theme: "the religion of self-blame",
     tagline: "Shame is what grows in the space between insight and execution.",
     description:
@@ -161,7 +161,7 @@ export const SONGS: Song[] = [
     title: "The Same Damn Knife",
     number: 9,
     available: true,
-    audio: "/audio/the-same-damn-knife.mp3",
+    audioUrl: "/audio/the-same-damn-knife.mp3",
     theme: "still here",
     tagline: "Not healed. Still here.",
     description:
@@ -178,7 +178,7 @@ export const SONGS: Song[] = [
     title: "You Know",
     number: 10,
     available: true,
-    audio: "/audio/you-know.mp3",
+    audioUrl: "/audio/you-know.mp3",
     theme: "the torture of knowing",
     tagline: "You do not need someone to explain your maze to you. You need someone to acknowledge it's there and they live in one too.",
     description:
@@ -195,7 +195,7 @@ export const SONGS: Song[] = [
     title: "Fast Life (Part 1 of 2)",
     number: 11,
     available: true,
-    audio: "/audio/fast-life-part-1.mp3",
+    audioUrl: "/audio/fast-life-part-1.mp3",
     theme: "the engine everyone claps for",
     tagline: "The engine everyone claps for while the driver is barely hanging on.",
     description:
@@ -212,7 +212,7 @@ export const SONGS: Song[] = [
     title: "Slow Death (Part 2 of 2)",
     number: 12,
     available: true,
-    audio: "/audio/slow-death-part-2.mp3",
+    audioUrl: "/audio/slow-death-part-2.mp3",
     theme: "the closer · the part nobody sees",
     tagline: "The part nobody sees because from the outside it looks like nothing.",
     description:

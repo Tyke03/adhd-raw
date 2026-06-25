@@ -42,6 +42,15 @@ export function SongEmbed({ song, compact = false }: { song: Song; compact?: boo
     );
   }
 
+  if (song.audioUrl) {
+    return (
+      <audio controls preload="none" style={{ width: "100%" }}>
+        <source src={song.audioUrl} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    );
+  }
+
   return (
     <div
       role="group"
