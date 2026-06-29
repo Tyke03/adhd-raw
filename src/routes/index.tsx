@@ -11,13 +11,34 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Twelve songs built from inside severe adult ADHD — not looking back at it from a safe distance, because there is no safe distance. By Brent K. Hubert (Clearly Confused).",
+          "Twelve songs built from inside severe adult ADHD by Brent K. Hubert (Clearly Confused). From inside it, to inside it.",
       },
       { property: "og:title", content: "You know, don't you." },
       {
         property: "og:description",
         content:
-          "From inside it, to inside it. An album, the research behind it, and a few footholds — not fixes — for severe adult ADHD.",
+          "An album, the research, and a few footholds — not fixes — for severe adult ADHD.",
+      },
+      { property: "og:url", content: "https://unmanageable.lovable.app/" },
+      { property: "og:type", content: "music.album" },
+    ],
+    links: [{ rel: "canonical", href: "https://unmanageable.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MusicAlbum",
+          name: "ADHD: Clearly Confused",
+          numTracks: SONGS.length,
+          byArtist: { "@type": "MusicGroup", name: "Clearly Confused", alternateName: "Brent K. Hubert" },
+          url: "https://unmanageable.lovable.app/",
+          track: SONGS.map((s) => ({
+            "@type": "MusicRecording",
+            name: s.title,
+            url: `https://unmanageable.lovable.app/songs/${s.slug}`,
+          })),
+        }),
       },
     ],
   }),

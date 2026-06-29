@@ -77,16 +77,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Unmanageable — Severe Adult ADHD" },
-      { name: "description", content: "Songs, research, and resources about severe adult ADHD — the kind that makes a life unmanageable without help. By Brent K. Hubert (Clearly Confused)." },
+      { name: "description", content: "Songs, research, and resources about severe adult ADHD by Brent K. Hubert (Clearly Confused)." },
       { name: "author", content: "Brent K. Hubert" },
-      { property: "og:title", content: "Unmanageable — Severe Adult ADHD" },
-      { property: "og:description", content: "Songs, research, and resources about severe adult ADHD — the kind that makes a life unmanageable without help. By Brent K. Hubert (Clearly Confused)." },
+      { property: "og:site_name", content: "Unmanageable" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Unmanageable — Severe Adult ADHD" },
-      { name: "twitter:description", content: "Songs, research, and resources about severe adult ADHD — the kind that makes a life unmanageable without help. By Brent K. Hubert (Clearly Confused)." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/9d185614-02ee-4e21-ac46-87250dc3a207" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/9d185614-02ee-4e21-ac46-87250dc3a207" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: "Unmanageable",
+              url: "https://unmanageable.lovable.app",
+            },
+            {
+              "@type": "Organization",
+              name: "Unmanageable",
+              url: "https://unmanageable.lovable.app",
+              founder: { "@type": "Person", name: "Brent K. Hubert", alternateName: "Clearly Confused" },
+            },
+          ],
+        }),
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://api.fontshare.com" },

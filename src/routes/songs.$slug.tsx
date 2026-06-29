@@ -14,17 +14,40 @@ export const Route = createFileRoute("/songs/$slug")({
     if (!song) throw notFound();
     return { song };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const song = loaderData?.song;
+    if (!song) return { meta: [] };
+    // Ensure description >= 50 chars by padding short taglines with theme/context.
+    const baseDesc = song.tagline;
+    const description =
+      baseDesc.length >= 50
+        ? baseDesc
+        : `${baseDesc} A song about ${song.theme} from ADHD: Clearly Confused by Brent K. Hubert.`;
+    const url = `https://unmanageable.lovable.app/songs/${params.slug}`;
     return {
-      meta: song
-        ? [
-            { title: `${song.title} — Unmanageable` },
-            { name: "description", content: song.tagline },
-            { property: "og:title", content: `${song.title} — ADHD: Clearly Confused` },
-            { property: "og:description", content: song.tagline },
-          ]
-        : [],
+      meta: [
+        { title: `${song.title} — Unmanageable` },
+        { name: "description", content: description },
+        { property: "og:title", content: `${song.title} — ADHD: Clearly Confused` },
+        { property: "og:description", content: description },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "music.song" },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MusicRecording",
+            name: song.title,
+            url,
+            description,
+            byArtist: { "@type": "MusicGroup", name: "Clearly Confused", alternateName: "Brent K. Hubert" },
+            inAlbum: { "@type": "MusicAlbum", name: "ADHD: Clearly Confused" },
+          }),
+        },
+      ],
     };
   },
   notFoundComponent: () => (
