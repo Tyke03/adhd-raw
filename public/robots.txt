@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adhd-hub.neocities.org/sitemap.xml
+Sitemap: https://unmanageable.lovable.app/sitemap.xml

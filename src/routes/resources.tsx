@@ -15,7 +15,9 @@ export const Route = createFileRoute("/resources")({
         property: "og:description",
         content: "Crisis help, advocacy, and evidence-based education for adults with severe ADHD.",
       },
+      { property: "og:url", content: "https://unmanageable.lovable.app/resources" },
     ],
+    links: [{ rel: "canonical", href: "https://unmanageable.lovable.app/resources" }],
   }),
   component: ResourcesPage,
 });
@@ -27,7 +29,7 @@ function ResourcesPage() {
     <section className="shell py-16 md:py-24">
       <div className="max-w-3xl">
         <span className="eyebrow">Resources</span>
-        <h1 className="mt-3 text-5xl md:text-6xl">Not fixes. Footholds.</h1>
+        <h1 className="mt-3 text-5xl md:text-6xl">Footholds: Severe Adult ADHD Resources</h1>
         <p className="mt-5 text-xl" style={{ color: "var(--color-text-muted)" }}>
           These are not cures. There are no cures. These are places, people, and frameworks that
           take adult ADHD seriously enough to stop insulting it with lazy explanations. Crisis

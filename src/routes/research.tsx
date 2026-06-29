@@ -16,6 +16,21 @@ export const Route = createFileRoute("/research")({
         property: "og:description",
         content: "The numbers behind why ADHD isn't a superpower for a measurable percentage of adults.",
       },
+      { property: "og:url", content: "https://unmanageable.lovable.app/research" },
+      { property: "og:type", content: "article" },
+    ],
+    links: [{ rel: "canonical", href: "https://unmanageable.lovable.app/research" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Research — Severe Adult ADHD Statistics",
+          author: { "@type": "Person", name: "Brent K. Hubert" },
+          url: "https://unmanageable.lovable.app/research",
+        }),
+      },
     ],
   }),
   component: ResearchPage,

@@ -7,14 +7,16 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "About Unmanageable and Brent K. Hubert (Clearly Confused) — a personal archive of songs, research, and resources for adults with severe ADHD, written by someone with a documented Amen Clinic ADHD brain scan.",
+          "About Brent K. Hubert (Clearly Confused) — songs, research, and resources for adults with severe ADHD, by someone still in it.",
       },
       { property: "og:title", content: "About — Unmanageable" },
       {
         property: "og:description",
         content: "Who built this site and why severe adult ADHD needs its own honest space.",
       },
+      { property: "og:url", content: "https://unmanageable.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://unmanageable.lovable.app/about" }],
   }),
   component: AboutPage,
 });
@@ -133,7 +135,8 @@ function AboutPage() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
+      <h2 className="mt-14 text-3xl md:text-4xl">The album, the artist, the point</h2>
+      <div className="mt-6 grid gap-5 md:grid-cols-3">
         {[
           {
             k: "The album",

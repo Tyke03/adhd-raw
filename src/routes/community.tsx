@@ -3,18 +3,20 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "Community — Unmanageable" },
+      { title: "Community Reflections — Unmanageable" },
       {
         name: "description",
         content:
           "A community space being built in real time for adults living with severe ADHD.",
       },
-      { property: "og:title", content: "Community — Unmanageable" },
+      { property: "og:title", content: "Community Reflections — Unmanageable" },
       {
         property: "og:description",
         content: "Send a reflection — this space is being built in real time.",
       },
+      { property: "og:url", content: "https://unmanageable.lovable.app/community" },
     ],
+    links: [{ rel: "canonical", href: "https://unmanageable.lovable.app/community" }],
   }),
   component: CommunityPage,
 });
@@ -30,8 +32,11 @@ export default function CommunityPage() {
       >
         <span className="eyebrow">Community</span>
         <h1 className="mt-4 text-4xl md:text-5xl">
-          This space is being built in real time.
+          Community Reflections
         </h1>
+        <p className="mt-3 text-base" style={{ color: "var(--color-text-muted)" }}>
+          This space is being built in real time.
+        </p>
         <p
           className="mt-5 text-lg"
           style={{ color: "var(--color-text-muted)" }}
