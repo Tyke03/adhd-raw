@@ -141,6 +141,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SiteHeader />
       <DidYouKnowBubble />
+      <SidePlayer />
       <main id="content">
         <Outlet />
       </main>
