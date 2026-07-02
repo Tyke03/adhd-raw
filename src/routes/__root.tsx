@@ -13,6 +13,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailSignup } from "@/components/EmailSignup";
 import { DidYouKnowBubble } from "@/components/DidYouKnowBubble";
+import { SidePlayer } from "@/components/SidePlayer";
 
 function NotFoundComponent() {
   return (
@@ -140,6 +141,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SiteHeader />
       <DidYouKnowBubble />
+      <SidePlayer />
       <main id="content">
         <Outlet />
       </main>
